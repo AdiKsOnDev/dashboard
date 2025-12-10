@@ -30,69 +30,31 @@ export async function GET(request: Request) {
     // Calculate total stars
     const totalStars = repos.reduce((sum: number, repo: any) => sum + (repo.stargazers_count || 0), 0);
 
-    // Fetch user data to get public contributions
-    const userResponse = await fetch(
-      `https://api.github.com/users/${username}`,
-      {
-        headers: {
-          'Accept': 'application/vnd.github.v3+json',
-          'User-Agent': 'Portfolio-App'
-        },
-        next: { revalidate: 3600 }
-      }
-    );
-
-    if (!userResponse.ok) {
-      throw new Error('Failed to fetch user data');
-    }
-
+    // Fetch contributions using github-contributions-api
+    // Source: https://stackoverflow.com/a/78203136
+    // Posted by AvivKeller
+    // Retrieved 2025-12-10, License: CC BY-SA 4.0
     let commitsLastYear = 0;
-
-    // Try scraping the GitHub profile page for contribution count
+    
     try {
-      const profileResponse = await fetch(
-        `https://github.com/${username}`,
+      const contributionsResponse = await fetch(
+        `https://github-contributions-api.deno.dev/${username}.json`,
         {
           headers: {
-            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
-            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
-            'Accept-Language': 'en-US,en;q=0.5',
+            'User-Agent': 'Portfolio-App'
           },
-          next: { revalidate: 86400 }
+          next: { revalidate: 86400 } // Cache for 24 hours
         }
       );
 
-      if (profileResponse.ok) {
-        const html = await profileResponse.text();
-        
-        // Multiple patterns to try
-        const patterns = [
-          /(\d{1,3}(?:,\d{3})*)\s+contributions?\s+in\s+the\s+last\s+year/i,
-          /(\d{1,3}(?:,\d{3})*)\s+contributions?\s+in\s+\d{4}/i,
-          /<h2[^>]*>(\d{1,3}(?:,\d{3})*)<\/h2>\s*contributions?\s+in\s+the\s+last\s+year/i
-        ];
-        
-        for (const pattern of patterns) {
-          const match = html.match(pattern);
-          if (match && match[1]) {
-            commitsLastYear = parseInt(match[1].replace(/,/g, ''));
-            break;
-          }
-        }
-
-        // If still 0, try to find it in the SVG data
-        if (commitsLastYear === 0) {
-          const dataCountMatches = html.match(/data-count="(\d+)"/g);
-          if (dataCountMatches) {
-            commitsLastYear = dataCountMatches.reduce((sum, match) => {
-              const count = parseInt(match.match(/\d+/)?.[0] || '0');
-              return sum + count;
-            }, 0);
-          }
-        }
+      if (contributionsResponse.ok) {
+        const contributionsData = await contributionsResponse.json();
+        commitsLastYear = contributionsData.totalContributions || 0;
       }
-    } catch (scrapeError) {
-      console.error('Scraping failed:', scrapeError);
+    } catch (contributionsError) {
+      console.error('Error fetching contributions:', contributionsError);
+      // If the contributions API fails, set to 0
+      commitsLastYear = 0;
     }
 
     return NextResponse.json({

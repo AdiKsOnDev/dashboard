@@ -46,60 +46,53 @@ export async function GET(request: Request) {
       throw new Error('Failed to fetch user data');
     }
 
-    // Fetch contribution data from GitHub's SVG endpoint
-    const currentYear = new Date().getFullYear();
-    const contributionsResponse = await fetch(
-      `https://github.com/users/${username}/contributions?from=${currentYear - 1}-12-01&to=${currentYear}-12-31`,
-      {
-        headers: {
-          'User-Agent': 'Portfolio-App'
-        },
-        next: { revalidate: 86400 } // Cache for 24 hours
-      }
-    );
-
     let commitsLastYear = 0;
 
-    if (contributionsResponse.ok) {
-      const html = await contributionsResponse.text();
-      
-      // Extract contribution counts from the SVG
-      const matches = html.match(/data-count="(\d+)"/g);
-      
-      if (matches) {
-        commitsLastYear = matches.reduce((sum, match) => {
-          const count = parseInt(match.match(/\d+/)?.[0] || '0');
-          return sum + count;
-        }, 0);
-      }
-    }
-
-    // If scraping fails, try to get a rough estimate from recent activity
-    if (commitsLastYear === 0) {
-      const eventsResponse = await fetch(
-        `https://api.github.com/users/${username}/events/public?per_page=100`,
+    // Try scraping the GitHub profile page for contribution count
+    try {
+      const profileResponse = await fetch(
+        `https://github.com/${username}`,
         {
           headers: {
-            'Accept': 'application/vnd.github.v3+json',
-            'User-Agent': 'Portfolio-App'
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+            'Accept-Language': 'en-US,en;q=0.5',
           },
-          next: { revalidate: 3600 }
+          next: { revalidate: 86400 }
         }
       );
 
-      if (eventsResponse.ok) {
-        const events = await eventsResponse.json();
-        const oneYearAgo = new Date();
-        oneYearAgo.setFullYear(oneYearAgo.getFullYear() - 1);
-
-        commitsLastYear = events.filter((event: any) => {
-          if (event.type === 'PushEvent') {
-            const eventDate = new Date(event.created_at);
-            return eventDate >= oneYearAgo;
+      if (profileResponse.ok) {
+        const html = await profileResponse.text();
+        
+        // Multiple patterns to try
+        const patterns = [
+          /(\d{1,3}(?:,\d{3})*)\s+contributions?\s+in\s+the\s+last\s+year/i,
+          /(\d{1,3}(?:,\d{3})*)\s+contributions?\s+in\s+\d{4}/i,
+          /<h2[^>]*>(\d{1,3}(?:,\d{3})*)<\/h2>\s*contributions?\s+in\s+the\s+last\s+year/i
+        ];
+        
+        for (const pattern of patterns) {
+          const match = html.match(pattern);
+          if (match && match[1]) {
+            commitsLastYear = parseInt(match[1].replace(/,/g, ''));
+            break;
           }
-          return false;
-        }).reduce((sum: number, event: any) => sum + (event.payload?.commits?.length || 0), 0);
+        }
+
+        // If still 0, try to find it in the SVG data
+        if (commitsLastYear === 0) {
+          const dataCountMatches = html.match(/data-count="(\d+)"/g);
+          if (dataCountMatches) {
+            commitsLastYear = dataCountMatches.reduce((sum, match) => {
+              const count = parseInt(match.match(/\d+/)?.[0] || '0');
+              return sum + count;
+            }, 0);
+          }
+        }
       }
+    } catch (scrapeError) {
+      console.error('Scraping failed:', scrapeError);
     }
 
     return NextResponse.json({

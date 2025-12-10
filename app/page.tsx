@@ -34,35 +34,23 @@ export default function Home() {
     try {
       const username = profileData.social.github.split('/').pop();
       
-      // Fetch user's repositories
-      const reposResponse = await fetch(`https://api.github.com/users/${username}/repos?per_page=100`);
-      const repos = await reposResponse.json();
+      // Fetch from our API route to avoid CORS issues
+      const response = await fetch(`/api/github-stats?username=${username}`);
       
-      // Calculate total stars
-      const totalStars = repos.reduce((sum: number, repo: any) => sum + repo.stargazers_count, 0);
-      
-      // Fetch contributions from GitHub's contribution graph
-      // We'll scrape the SVG from the profile page since GitHub doesn't provide this in the REST API
-      const contributionsResponse = await fetch(`https://github.com/users/${username}/contributions`);
-      const contributionsHTML = await contributionsResponse.text();
-      
-      // Parse the contribution count from the HTML
-      // The format is like "2,540 contributions in the last year"
-      const contributionMatch = contributionsHTML.match(/data-count="(\d+)"/g);
-      
-      let commitsLastYear = 0;
-      if (contributionMatch) {
-        // Sum all the data-count values from the contribution graph
-        commitsLastYear = contributionMatch.reduce((sum, match) => {
-          const count = parseInt(match.match(/\d+/)?.[0] || '0');
-          return sum + count;
-        }, 0);
+      if (!response.ok) {
+        throw new Error('Failed to fetch GitHub stats');
       }
       
-      setGithubStats({ totalStars, commitsLastYear });
+      const data = await response.json();
+      
+      setGithubStats({
+        totalStars: data.totalStars || 0,
+        commitsLastYear: data.commitsLastYear || 0
+      });
       setLoading(false);
     } catch (error) {
       console.error('Error fetching GitHub stats:', error);
+      setGithubStats({ totalStars: 0, commitsLastYear: 0 });
       setLoading(false);
     }
   };

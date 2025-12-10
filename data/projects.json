@@ -114,7 +114,7 @@
       "title": "OES UI Platform",
       "description": "Modern TypeScript frontend for the Ontology Excellence System with intuitive data visualization and management.",
       "longDescription": "Built a comprehensive web application for managing and visualizing ontology data. Features include interactive dashboards, real-time updates, advanced filtering, and bulk operations. Implemented with React, TypeScript, and modern state management, providing a seamless user experience for complex data operations. Includes comprehensive testing, CI/CD integration, and Docker containerization.",
-      "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop",
+      "image": "/dashboard/assets/oes-ui.png",
       "tags": [
         "TypeScript",
         "React",
@@ -140,7 +140,7 @@
       "title": "HyprValley",
       "description": "Arch Linux rice featuring 5 stunning themes (Space, Nature, Ocean, Sakura, Code-RED) for Hyprland window manager.",
       "longDescription": "A comprehensive Hyprland configuration with meticulously crafted themes that transform the Linux desktop experience. Each theme includes custom Waybar configurations, color schemes, wallpapers, and system integrations. Gained significant traction in the Linux community with 40 GitHub stars and 200+ upvotes on Reddit, demonstrating strong community appreciation for the aesthetic and functional design.",
-      "image": "https://preview.redd.it/hyprland-meet-hyprvalley-my-very-first-attempt-at-linux-v0-rw0xb0ast90d1.png?width=1080&crop=smart&auto=webp&s=24355e7aec706909341e94671a9c5e0b61f9c58c",
+      "image": "/dashboard/assets/hyprvalley.png",
       "tags": [
         "Shell",
         "CSS",

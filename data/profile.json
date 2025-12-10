@@ -1,0 +1,21 @@
+{
+  "name": "Adil Alizada",
+  "title": "Full Stack Engineer @ Sentiment.AI",
+  "location": "Dubai, United Arab Emirates",
+  "email": "TODO: Add your email",
+  "phone": "TODO: Add your phone number",
+  "bio": "TODO: Add a brief bio about yourself - your passion, expertise, and what drives you as a developer",
+  "avatar": "TODO: Add your profile picture URL (GitHub avatar, LinkedIn photo, or custom image)",
+  "social": {
+    "github": "TODO: Add your GitHub profile URL",
+    "linkedin": "TODO: Add your LinkedIn profile URL",
+    "twitter": "TODO: Add your Twitter/X profile URL (or remove if not applicable)",
+    "website": "https://portfolio-website-adil-6c7a255f698e.herokuapp.com/"
+  },
+  "stats": {
+    "yearsExperience": "TODO: Add your years of professional experience",
+    "projectsCompleted": "TODO: Add approximate number of projects completed",
+    "clientsSatisfied": "TODO: Add number of clients/companies worked with",
+    "coffeeConsumed": "TODO: Add a fun stat (or change this to something else like 'linesOfCode' or 'commitsThisYear')"
+  }
+}

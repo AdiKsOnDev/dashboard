@@ -1,0 +1,56 @@
+{
+  "availability": {
+    "status": "TODO: Change to 'available', 'busy', or 'unavailable'",
+    "message": "TODO: Add your availability message (e.g., 'Currently available for freelance projects', 'Open to new opportunities', etc.)",
+    "responseTime": "TODO: Add your typical response time (e.g., 'Within 24 hours', 'Within 48 hours')"
+  },
+  "preferredContact": "email",
+  "workingHours": {
+    "timezone": "GST (UTC+4)",
+    "hours": "TODO: Add your working hours (e.g., '9:00 AM - 6:00 PM')"
+  },
+  "services": [
+    {
+      "id": "1",
+      "title": "Full Stack Development",
+      "description": "TODO: Describe your full stack development services - what technologies you use, what you specialize in",
+      "icon": "globe"
+    },
+    {
+      "id": "2",
+      "title": "API Development",
+      "description": "TODO: Describe your API development expertise - REST, GraphQL, microservices, etc.",
+      "icon": "api"
+    },
+    {
+      "id": "3",
+      "title": "TODO: Add your third service",
+      "description": "TODO: Describe this service (e.g., Cloud Architecture, DevOps, Technical Consulting, etc.)",
+      "icon": "lightbulb"
+    },
+    {
+      "id": "4",
+      "title": "TODO: Add your fourth service",
+      "description": "TODO: Describe this service (e.g., Performance Optimization, Code Review, Mentoring, etc.)",
+      "icon": "zap"
+    }
+  ],
+  "faqs": [
+    {
+      "question": "TODO: Add a common question you receive",
+      "answer": "TODO: Add your answer"
+    },
+    {
+      "question": "Do you work with clients remotely?",
+      "answer": "TODO: Update with your remote work policy and experience"
+    },
+    {
+      "question": "TODO: Add another common question",
+      "answer": "TODO: Add your answer"
+    },
+    {
+      "question": "TODO: Add another common question",
+      "answer": "TODO: Add your answer"
+    }
+  ]
+}

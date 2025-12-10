@@ -4,6 +4,7 @@ import "./globals.css";
 import { Sidebar } from "@/components/sidebar";
 import { MobileNav } from "@/components/mobile-nav";
 import { ThemeProvider } from "@/components/theme-provider";
+import { ThemeToggle } from "@/components/theme-toggle";
 import profileData from "@/data/profile.json";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -33,9 +34,14 @@ export default function RootLayout({
             </aside>
 
             <div className="flex flex-1 flex-col overflow-hidden">
-              <header className="flex h-16 items-center border-b px-6 md:hidden">
-                <MobileNav profile={profileData} />
-                <h1 className="ml-4 text-lg font-semibold">Portfolio</h1>
+              <header className="flex h-16 items-center justify-between border-b px-6">
+                <div className="flex items-center md:hidden">
+                  <MobileNav profile={profileData} />
+                  <h1 className="ml-4 text-lg font-semibold">Portfolio</h1>
+                </div>
+                <div className="ml-auto">
+                  <ThemeToggle />
+                </div>
               </header>
 
               <main className="flex-1 overflow-auto">

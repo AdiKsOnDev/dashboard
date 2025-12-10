@@ -3,15 +3,16 @@
   "title": "Full-Stack Engineer @ Sentiment.AI",
   "location": "Dubai, United Arab Emirates",
   "email": "adilalizade13@gmail.com",
-  "phone": "+971552859694",
-  "bio": "Honesty is the best Policy.",
+  "phone": "+971 55 285 9694",
+  "bio": "",
   "avatar": "https://avatars.githubusercontent.com/u/80326762?v=4",
   "social": {
     "github": "https://github.com/AdiKsOnDev",
-    "linkedin": "https://www.linkedin.com/in/adilalizada-613b31236"
+    "linkedin": "https://www.linkedin.com/in/adil-alizada-613b31236/",
+    "kaggle": "https://www.kaggle.com/adilalizada"
   },
   "stats": {
-    "yearsExperience": "TODO: Add your years of professional experience (e.g., 2, 3, 5)",
-    "crashouts": "TODO: Add number of crashouts/debugging sessions (fun stat, e.g., 42, 100, 999)"
+    "yearsExperience": "2",
+    "crashouts": "217"
   }
 }

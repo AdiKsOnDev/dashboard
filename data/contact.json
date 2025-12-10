@@ -1,12 +1,12 @@
 {
   "availability": {
-    "status": "TODO: Change to 'available', 'busy', or 'unavailable'",
-    "message": "TODO: Add your availability message (e.g., 'Currently available for freelance projects', 'Open to new opportunities', etc.)",
-    "responseTime": "TODO: Add your typical response time (e.g., 'Within 24 hours', 'Within 48 hours')"
+    "status": "Available",
+    "message": "Available for a quick meeting to discuss anything",
+    "responseTime": "~2 Hours"
   },
   "preferredContact": "email",
   "workingHours": {
-    "timezone": "GST (UTC+4)",
-    "hours": "TODO: Add your working hours (e.g., '9:00 AM - 6:00 PM')"
+    "timezone": "GST (GMT+4)",
+    "hours": "08:00-22:00"
   }
 }

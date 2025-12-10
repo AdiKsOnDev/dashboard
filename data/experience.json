@@ -3,22 +3,27 @@
     {
       "id": "1",
       "company": "Sentiment AI",
-      "position": "Full Stack Engineer",
+      "position": "Full-Stack Engineer",
       "location": "Dubai, United Arab Emirates",
       "type": "Full-time",
       "startDate": "2025-10",
       "endDate": null,
       "current": true,
-      "description": "TODO: Add a brief description of your role and what Sentiment AI does",
+      "description": "Processing Qualitative Data, such as call recordings to provide detailed analytics to consulting companies",
       "responsibilities": [
-        "TODO: Add your key responsibilities as Full Stack Engineer",
-        "TODO: Add another responsibility",
-        "TODO: Add another responsibility",
-        "TODO: Add another responsibility"
+        "Moderated version control via GitHub repositories and performed extensive Pull Request (PR) reviews",
+        "Architected and developed scalable database infrastructure handling 1M+ records for enterprise ontology management",
+        "Built high-performance REST API with Flask achieving sub-100ms response times for standard queries",
+        "Developed comprehensive TypeScript frontend with React for intuitive data visualization and management",
+        "Implemented CI/CD pipelines, Docker containerization, and comprehensive testing strategies",
+        "Designed and optimized complex database schemas with PostgreSQL and SQLAlchemy for hierarchical data relationships",
+        "Made AI agents that help the company build better software and help customers talk to their data"
       ],
-      "technologies": ["TODO: Add technologies you use (e.g., React, Node.js, Python, AWS, etc.)"],
+      "technologies": ["Python", "TypeScript", "Next.JS", "Flask", "PostgreSQL", "SQLAlchemy", "Docker", "CI/CD", "AWS"],
       "achievements": [
-        "TODO: Add key achievements in this role (optional)"
+        "Successfully delivered complete Ontology Excellence System (OES) with database, API, and UI components",
+        "Enabled seamless client integration with zero downtime through robust data model design",
+        "Achieved real-time data access and updates across the entire platform"
       ]
     },
     {
@@ -30,15 +35,18 @@
       "startDate": "2025-07",
       "endDate": "2025-09",
       "current": false,
-      "description": "TODO: Add description of your internship role and contributions",
+      "description": "Contributed to the foundational development of SentimentAI's Ontology system and enterprise infrastructure during the company's early stages.",
       "responsibilities": [
-        "TODO: Add your key responsibilities as AI/ML Engineer Intern",
-        "TODO: Add another responsibility",
-        "TODO: Add another responsibility"
+        "Designed and implemented the initial database layer for the ontology management system",
+        "Developed data models and relationships for complex hierarchical enterprise data structures",
+        "Collaborated with the founding team to establish technical architecture and best practices",
+        "Built proof-of-concept features for client onboarding and data integration workflows",
+        "Brought ~$20K revenue for my company through suggesting and implementing new products"
       ],
-      "technologies": ["TODO: Add AI/ML technologies used (e.g., Python, TensorFlow, PyTorch, LangChain, etc.)"],
+      "technologies": ["Python", "PostgreSQL", "SQLAlchemy", "Database Design", "Flask", "CI/CD"],
       "achievements": [
-        "TODO: Add achievements during internship (optional)"
+        "Laid the groundwork for the company's core ontology infrastructure",
+        "Transitioned from intern to full-time engineer based on strong performance and teamwork"
       ]
     },
     {
@@ -57,10 +65,8 @@
         "Held extra tutorials for Direct Entry Students",
         "Helped with Homework and assignments"
       ],
-      "technologies": ["TODO: Add technologies/subjects taught (e.g., Python, Java, Data Structures, etc.)"],
-      "achievements": [
-        "TODO: Add achievements (e.g., student feedback, number of students helped, etc.) - optional"
-      ]
+      "technologies": [],
+      "achievements": []
     },
     {
       "id": "4",
@@ -80,7 +86,7 @@
       ],
       "technologies": ["Angular", "C#", "MongoDB", "Azure", "D3.js", "GitHub"],
       "achievements": [
-        "TODO: Add achievements (optional)"
+        "Contributed to creation of a platform with a 99.9% uptime and support for >5 Businesses"
       ]
     },
     {
@@ -121,9 +127,8 @@
         "Continuously integrated features that aligned with the client's needs",
         "Changed the design of web pages to improve UI/UX"
       ],
-      "technologies": ["TODO: Add technologies used (e.g., HTML, CSS, JavaScript, React, etc.)"],
+      "technologies": ["HTML", "CSS", "JavaScript"],
       "achievements": [
-        "TODO: Add achievements (e.g., improved user engagement, client satisfaction, etc.) - optional"
       ]
     }
   ]

@@ -34,18 +34,43 @@ export default function Home() {
     try {
       const username = profileData.social.github.split('/').pop();
       
-      // Fetch from our API route to avoid CORS issues
-      const response = await fetch(`/api/github-stats?username=${username}`);
-      
-      if (!response.ok) {
-        throw new Error('Failed to fetch GitHub stats');
+      // Fetch user's repositories directly from GitHub API
+      const reposResponse = await fetch(
+        `https://api.github.com/users/${username}/repos?per_page=100&sort=updated`,
+        {
+          headers: {
+            'Accept': 'application/vnd.github.v3+json',
+          },
+        }
+      );
+
+      let totalStars = 0;
+      if (reposResponse.ok) {
+        const repos = await reposResponse.json();
+        totalStars = repos.reduce((sum: number, repo: { stargazers_count?: number }) => 
+          sum + (repo.stargazers_count || 0), 0);
+      }
+
+      // Fetch contributions using github-contributions-api
+      // Source: https://stackoverflow.com/a/78203136
+      // Posted by AvivKeller
+      // Retrieved 2025-12-10, License: CC BY-SA 4.0
+      let commitsLastYear = 0;
+      try {
+        const contributionsResponse = await fetch(
+          `https://github-contributions-api.deno.dev/${username}.json`
+        );
+        if (contributionsResponse.ok) {
+          const contributionsData = await contributionsResponse.json();
+          commitsLastYear = contributionsData.totalContributions || 0;
+        }
+      } catch (contributionsError) {
+        console.error('Error fetching contributions:', contributionsError);
       }
       
-      const data = await response.json();
-      
       setGithubStats({
-        totalStars: data.totalStars || 0,
-        commitsLastYear: data.commitsLastYear || 0
+        totalStars,
+        commitsLastYear,
       });
       setLoading(false);
     } catch (error) {

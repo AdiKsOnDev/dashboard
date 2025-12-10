@@ -1,108 +1,21 @@
 {
   "posts": [
     {
-      "id": "1",
-      "slug": "building-scalable-microservices-nodejs",
-      "title": "Building Scalable Microservices with Node.js",
-      "excerpt": "Learn how to design and implement microservices architecture using Node.js, Docker, and Kubernetes for production-ready applications.",
-      "coverImage": "https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=800&h=600&fit=crop",
-      "publishedAt": "2024-11-15",
-      "readTime": "8 min read",
-      "category": "Backend",
-      "tags": ["Node.js", "Microservices", "Docker", "Kubernetes"],
-      "author": "Alex Morgan",
-      "featured": true
-    },
-    {
-      "id": "2",
-      "slug": "react-server-components-deep-dive",
-      "title": "React Server Components: A Deep Dive",
-      "excerpt": "Exploring the new React Server Components paradigm and how it changes the way we build React applications.",
-      "coverImage": "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=800&h=600&fit=crop",
-      "publishedAt": "2024-10-28",
-      "readTime": "12 min read",
-      "category": "Frontend",
-      "tags": ["React", "Next.js", "Server Components"],
-      "author": "Alex Morgan",
-      "featured": true
-    },
-    {
-      "id": "3",
-      "slug": "optimizing-database-queries-performance",
-      "title": "Optimizing Database Queries for Performance",
-      "excerpt": "Practical strategies for improving database query performance in PostgreSQL and MongoDB applications.",
-      "coverImage": "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=800&h=600&fit=crop",
-      "publishedAt": "2024-10-12",
-      "readTime": "10 min read",
-      "category": "Database",
-      "tags": ["PostgreSQL", "MongoDB", "Performance", "Optimization"],
-      "author": "Alex Morgan",
+      "id": "1765381538990",
+      "slug": "genai-is-supposed-to-be-convenient",
+      "title": "GenAI is Stealing Our Art",
+      "excerpt": "LLMs were made to do our laundry and write documentation, but nowadays all we do is do laundry and write documentation.",
+      "coverImage": "https://images.unsplash.com/photo-1679083216051-aa510a1a2c0e?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8R2VuQUl8ZW58MHx8MHx8fDA%3D",
+      "publishedAt": "2025-12-10",
+      "readTime": "1 min read",
+      "category": "Artificial Intelligence (AI)",
+      "tags": [
+        "GenAI",
+        "Programming",
+        "Chores"
+      ],
+      "author": "Adil Alizada",
       "featured": false
-    },
-    {
-      "id": "4",
-      "slug": "typescript-best-practices-large-codebases",
-      "title": "TypeScript Best Practices for Large Codebases",
-      "excerpt": "Essential TypeScript patterns and practices for maintaining type safety in enterprise applications.",
-      "coverImage": "https://images.unsplash.com/photo-1516116216624-53e697fedbea?w=800&h=600&fit=crop",
-      "publishedAt": "2024-09-25",
-      "readTime": "7 min read",
-      "category": "TypeScript",
-      "tags": ["TypeScript", "Best Practices", "Code Quality"],
-      "author": "Alex Morgan",
-      "featured": false
-    },
-    {
-      "id": "5",
-      "slug": "implementing-realtime-features-websockets",
-      "title": "Implementing Real-Time Features with WebSockets",
-      "excerpt": "A practical guide to adding real-time functionality to your web applications using WebSockets and Socket.io.",
-      "coverImage": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop",
-      "publishedAt": "2024-09-08",
-      "readTime": "9 min read",
-      "category": "Full Stack",
-      "tags": ["WebSockets", "Socket.io", "Real-time", "Node.js"],
-      "author": "Alex Morgan",
-      "featured": false
-    },
-    {
-      "id": "6",
-      "slug": "cicd-pipeline-github-actions",
-      "title": "CI/CD Pipeline Setup with GitHub Actions",
-      "excerpt": "Step-by-step guide to setting up automated testing and deployment pipelines using GitHub Actions.",
-      "coverImage": "https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?w=800&h=600&fit=crop",
-      "publishedAt": "2024-08-20",
-      "readTime": "11 min read",
-      "category": "DevOps",
-      "tags": ["CI/CD", "GitHub Actions", "DevOps", "Automation"],
-      "author": "Alex Morgan",
-      "featured": false
-    },
-    {
-      "id": "7",
-      "slug": "mastering-css-grid-flexbox",
-      "title": "Mastering CSS Grid and Flexbox",
-      "excerpt": "Complete guide to modern CSS layout techniques with practical examples and use cases.",
-      "coverImage": "https://images.unsplash.com/photo-1507721999472-8ed4421c4af2?w=800&h=600&fit=crop",
-      "publishedAt": "2024-08-05",
-      "readTime": "6 min read",
-      "category": "CSS",
-      "tags": ["CSS", "Grid", "Flexbox", "Layout"],
-      "author": "Alex Morgan",
-      "featured": false
-    },
-    {
-      "id": "8",
-      "slug": "security-best-practices-web-applications",
-      "title": "Security Best Practices for Web Applications",
-      "excerpt": "Essential security measures every developer should implement to protect their web applications.",
-      "coverImage": "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=800&h=600&fit=crop",
-      "publishedAt": "2024-07-18",
-      "readTime": "13 min read",
-      "category": "Security",
-      "tags": ["Security", "Web Development", "Best Practices"],
-      "author": "Alex Morgan",
-      "featured": true
     }
   ]
 }

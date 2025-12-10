@@ -22,8 +22,6 @@ import {
   Mail,
   Github,
   Linkedin,
-  Twitter,
-  Globe,
 } from "lucide-react";
 import { Profile } from "@/types";
 import { useState } from "react";
@@ -44,8 +42,6 @@ const navigation = [
 const socialIcons = {
   github: Github,
   linkedin: Linkedin,
-  twitter: Twitter,
-  website: Globe,
 };
 
 export function MobileNav({ profile }: MobileNavProps) {
@@ -101,23 +97,25 @@ export function MobileNav({ profile }: MobileNavProps) {
           <Separator />
 
           <div className="flex justify-center gap-2">
-            {Object.entries(profile.social).map(([key, url]) => {
-              const Icon = socialIcons[key as keyof typeof socialIcons];
-              return (
-                <Button
-                  key={key}
-                  variant="ghost"
-                  size="icon"
-                  className="h-9 w-9"
-                  asChild
-                >
-                  <a href={url} target="_blank" rel="noopener noreferrer">
-                    <Icon className="h-4 w-4 text-primary" />
-                    <span className="sr-only">{key}</span>
-                  </a>
-                </Button>
-              );
-            })}
+            {Object.entries(profile.social)
+              .filter(([key]) => key === 'github' || key === 'linkedin')
+              .map(([key, url]) => {
+                const Icon = socialIcons[key as keyof typeof socialIcons];
+                return (
+                  <Button
+                    key={key}
+                    variant="ghost"
+                    size="icon"
+                    className="h-9 w-9"
+                    asChild
+                  >
+                    <a href={url} target="_blank" rel="noopener noreferrer">
+                      <Icon className="h-4 w-4 text-primary" />
+                      <span className="sr-only">{key}</span>
+                    </a>
+                  </Button>
+                );
+              })}
             <ThemeToggle />
           </div>
         </div>

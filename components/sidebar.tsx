@@ -14,8 +14,6 @@ import {
   Mail,
   Github,
   Linkedin,
-  Twitter,
-  Globe,
 } from "lucide-react";
 import { Profile } from "@/types";
 
@@ -34,8 +32,6 @@ const navigation = [
 const socialIcons = {
   github: Github,
   linkedin: Linkedin,
-  twitter: Twitter,
-  website: Globe,
 };
 
 export function Sidebar({ profile }: SidebarProps) {
@@ -84,23 +80,25 @@ export function Sidebar({ profile }: SidebarProps) {
 
       <div className="border-t p-6">
         <div className="flex justify-center gap-2">
-          {Object.entries(profile.social).map(([key, url]) => {
-            const Icon = socialIcons[key as keyof typeof socialIcons];
-            return (
-              <Button
-                key={key}
-                variant="ghost"
-                size="icon"
-                className="h-9 w-9"
-                asChild
-              >
-                <a href={url} target="_blank" rel="noopener noreferrer">
-                  <Icon className="h-4 w-4 text-primary" />
-                  <span className="sr-only">{key}</span>
-                </a>
-              </Button>
-            );
-          })}
+          {Object.entries(profile.social)
+            .filter(([key]) => key === 'github' || key === 'linkedin')
+            .map(([key, url]) => {
+              const Icon = socialIcons[key as keyof typeof socialIcons];
+              return (
+                <Button
+                  key={key}
+                  variant="ghost"
+                  size="icon"
+                  className="h-9 w-9"
+                  asChild
+                >
+                  <a href={url} target="_blank" rel="noopener noreferrer">
+                    <Icon className="h-4 w-4 text-primary" />
+                    <span className="sr-only">{key}</span>
+                  </a>
+                </Button>
+              );
+            })}
         </div>
       </div>
     </div>

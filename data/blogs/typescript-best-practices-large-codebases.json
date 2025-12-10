@@ -1,0 +1,14 @@
+{
+  "id": "4",
+  "title": "TypeScript Best Practices for Large Codebases",
+  "slug": "typescript-best-practices-large-codebases",
+  "excerpt": "Essential TypeScript patterns and practices for maintaining type safety in enterprise applications.",
+  "coverImage": "https://images.unsplash.com/photo-1516116216624-53e697fedbea?w=800&h=600&fit=crop",
+  "publishedAt": "2024-09-25",
+  "readTime": "7 min read",
+  "category": "TypeScript",
+  "tags": ["TypeScript", "Best Practices", "Code Quality"],
+  "author": "Alex Morgan",
+  "featured": false,
+  "content": "# TypeScript Best Practices for Large Codebases\n\nAs your TypeScript codebase grows, maintaining type safety becomes increasingly important. This guide covers essential patterns and practices for enterprise applications.\n\n## Strict Configuration\n\nStart with strict TypeScript settings:\n\n```json\n{\n  \"compilerOptions\": {\n    \"strict\": true,\n    \"noUncheckedIndexedAccess\": true,\n    \"noImplicitOverride\": true,\n    \"noPropertyAccessFromIndexSignature\": true,\n    \"exactOptionalPropertyTypes\": true\n  }\n}\n```\n\n## Type Organization\n\n### Centralized Type Definitions\n\n```typescript\n// types/user.ts\nexport interface User {\n  id: string;\n  email: string;\n  name: string;\n  role: UserRole;\n}\n\nexport type UserRole = 'admin' | 'user' | 'guest';\n\nexport interface UserWithOrders extends User {\n  orders: Order[];\n}\n```\n\n### Use Type Guards\n\n```typescript\nfunction isUser(value: unknown): value is User {\n  return (\n    typeof value === 'object' &&\n    value !== null &&\n    'id' in value &&\n    'email' in value\n  );\n}\n```\n\n## Advanced Patterns\n\n### Discriminated Unions\n\n```typescript\ntype ApiResponse<T> =\n  | { status: 'success'; data: T }\n  | { status: 'error'; error: string }\n  | { status: 'loading' };\n\nfunction handleResponse<T>(response: ApiResponse<T>) {\n  switch (response.status) {\n    case 'success':\n      return response.data; // TypeScript knows data exists\n    case 'error':\n      throw new Error(response.error);\n    case 'loading':\n      return null;\n  }\n}\n```\n\n### Utility Types\n\n```typescript\n// Make all properties optional recursively\ntype DeepPartial<T> = {\n  [P in keyof T]?: T[P] extends object ? DeepPartial<T[P]> : T[P];\n};\n\n// Extract function return type\ntype AsyncReturnType<T extends (...args: any) => Promise<any>> =\n  T extends (...args: any) => Promise<infer R> ? R : never;\n```\n\n## Conclusion\n\nTypeScript's power lies in its type system. Use it wisely, configure it strictly, and your codebase will thank you.\n"
+}

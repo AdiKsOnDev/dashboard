@@ -5,7 +5,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Calendar, Clock, Star } from "lucide-react";
-import blogData from "@/data/blog.json";
+import blogData from "@/data/blogs/index.json";
 
 export default function BlogPage() {
   const [selectedCategory, setSelectedCategory] = useState("all");

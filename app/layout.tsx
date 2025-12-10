@@ -33,16 +33,17 @@ export default function RootLayout({
               <Sidebar profile={profileData} />
             </aside>
 
-            <div className="flex flex-1 flex-col overflow-hidden">
-              <header className="flex h-16 items-center justify-between border-b px-6">
-                <div className="flex items-center md:hidden">
-                  <MobileNav profile={profileData} />
-                  <h1 className="ml-4 text-lg font-semibold">Portfolio</h1>
-                </div>
-                <div className="ml-auto">
-                  <ThemeToggle />
-                </div>
+            <div className="flex flex-1 flex-col overflow-hidden relative">
+              {/* Mobile Header */}
+              <header className="flex h-16 items-center border-b px-6 md:hidden">
+                <MobileNav profile={profileData} />
+                <h1 className="ml-4 text-lg font-semibold">Portfolio</h1>
               </header>
+
+              {/* Floating Theme Toggle */}
+              <div className="fixed top-6 right-6 z-50">
+                <ThemeToggle />
+              </div>
 
               <main className="flex-1 overflow-auto">
                 {children}

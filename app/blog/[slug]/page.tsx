@@ -102,17 +102,6 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         </div>
       </div>
       
-      {/* Cover Image */}
-      <div className="container max-w-4xl px-6 -mt-8">
-        <div className="aspect-video overflow-hidden rounded-lg border bg-muted shadow-lg">
-          <img
-            src={post.coverImage}
-            alt={post.title}
-            className="h-full w-full object-cover"
-          />
-        </div>
-      </div>
-      
       {/* Article Content */}
       <article className="container max-w-4xl py-12 px-6">
         <MarkdownContent content={post.content} />

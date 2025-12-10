@@ -10,7 +10,7 @@ import profileData from "@/data/profile.json";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Portfolio - Alex Morgan",
+  title: "Adil Alizada",
   description: "Full Stack Developer Portfolio",
 };
 

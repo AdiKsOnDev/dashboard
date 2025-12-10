@@ -156,7 +156,9 @@ export default function Home() {
               <MapPin className="h-4 w-4 text-muted-foreground" />
               <span>{profileData.location}</span>
             </div>
-            <Button className="w-full mt-4">Send Message</Button>
+            <Button className="w-full mt-4" asChild>
+              <a href={`mailto:${profileData.email}`}>Send Message</a>
+            </Button>
           </CardContent>
         </Card>
       </div>

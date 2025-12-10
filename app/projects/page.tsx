@@ -32,7 +32,7 @@ export default function ProjectsPage() {
       </div>
 
       <Tabs value={selectedCategory} onValueChange={setSelectedCategory} className="mb-8">
-        <TabsList>
+        <TabsList className="h-auto flex-wrap">
           {categories.map((category) => (
             <TabsTrigger key={category} value={category} className="capitalize">
               {category}

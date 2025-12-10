@@ -1,22 +1,68 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
-import { Mail, MapPin, Phone, Calendar, TrendingUp, Users, Coffee } from "lucide-react";
+import { Mail, MapPin, Phone, Calendar, Star, GitCommit, Flame } from "lucide-react";
 import { ProjectModal } from "@/components/project-modal";
 import { Project } from "@/types";
 import profileData from "@/data/profile.json";
 import projectsData from "@/data/projects.json";
 import experienceData from "@/data/experience.json";
 
+interface GitHubStats {
+  totalStars: number;
+  commitsLastYear: number;
+}
+
 export default function Home() {
   const recentProjects = projectsData.projects.slice(0, 3);
   const currentJob = experienceData.experience.find(exp => exp.current);
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [modalOpen, setModalOpen] = useState(false);
+  const [githubStats, setGithubStats] = useState<GitHubStats>({ totalStars: 0, commitsLastYear: 0 });
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetchGitHubStats();
+  }, []);
+
+  const fetchGitHubStats = async () => {
+    try {
+      const username = profileData.social.github.split('/').pop();
+      
+      // Fetch user's repositories
+      const reposResponse = await fetch(`https://api.github.com/users/${username}/repos?per_page=100`);
+      const repos = await reposResponse.json();
+      
+      // Calculate total stars
+      const totalStars = repos.reduce((sum: number, repo: any) => sum + repo.stargazers_count, 0);
+      
+      // Fetch commit activity for the last year
+      const oneYearAgo = new Date();
+      oneYearAgo.setFullYear(oneYearAgo.getFullYear() - 1);
+      
+      const eventsResponse = await fetch(`https://api.github.com/users/${username}/events/public?per_page=100`);
+      const events = await eventsResponse.json();
+      
+      // Count push events (commits) from the last year
+      const commitsLastYear = events.filter((event: any) => {
+        if (event.type === 'PushEvent') {
+          const eventDate = new Date(event.created_at);
+          return eventDate >= oneYearAgo;
+        }
+        return false;
+      }).reduce((sum: number, event: any) => sum + (event.payload?.commits?.length || 0), 0);
+      
+      setGithubStats({ totalStars, commitsLastYear });
+      setLoading(false);
+    } catch (error) {
+      console.error('Error fetching GitHub stats:', error);
+      setLoading(false);
+    }
+  };
 
   const handleProjectClick = (project: any) => {
     setSelectedProject(project as Project);
@@ -44,34 +90,38 @@ export default function Home() {
 
         <Card>
           <CardHeader className="flex flex-row items-center justify-between pb-2">
-            <CardTitle className="text-sm font-medium">Projects</CardTitle>
-            <TrendingUp className="h-4 w-4 text-primary" />
+            <CardTitle className="text-sm font-medium">GitHub Stars</CardTitle>
+            <Star className="h-4 w-4 text-primary" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">{profileData.stats.projectsCompleted}</div>
-            <p className="text-xs text-muted-foreground mt-1">Successfully delivered</p>
+            <div className="text-2xl font-bold">
+              {loading ? '...' : githubStats.totalStars}
+            </div>
+            <p className="text-xs text-muted-foreground mt-1">Across all repositories</p>
           </CardContent>
         </Card>
 
         <Card>
           <CardHeader className="flex flex-row items-center justify-between pb-2">
-            <CardTitle className="text-sm font-medium">Clients</CardTitle>
-            <Users className="h-4 w-4 text-primary" />
+            <CardTitle className="text-sm font-medium">Commits Last Year</CardTitle>
+            <GitCommit className="h-4 w-4 text-primary" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">{profileData.stats.clientsSatisfied}</div>
-            <p className="text-xs text-muted-foreground mt-1">Happy clients</p>
+            <div className="text-2xl font-bold">
+              {loading ? '...' : githubStats.commitsLastYear}
+            </div>
+            <p className="text-xs text-muted-foreground mt-1">Public contributions</p>
           </CardContent>
         </Card>
 
         <Card>
           <CardHeader className="flex flex-row items-center justify-between pb-2">
-            <CardTitle className="text-sm font-medium">Coffee</CardTitle>
-            <Coffee className="h-4 w-4 text-primary" />
+            <CardTitle className="text-sm font-medium">Crashouts</CardTitle>
+            <Flame className="h-4 w-4 text-primary" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">{profileData.stats.coffeeConsumed.toLocaleString()}</div>
-            <p className="text-xs text-muted-foreground mt-1">Cups consumed</p>
+            <div className="text-2xl font-bold">{profileData.stats.crashouts}</div>
+            <p className="text-xs text-muted-foreground mt-1">Debugging sessions</p>
           </CardContent>
         </Card>
       </div>

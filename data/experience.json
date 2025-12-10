@@ -1,0 +1,130 @@
+{
+  "experience": [
+    {
+      "id": "1",
+      "company": "Sentiment AI",
+      "position": "Full Stack Engineer",
+      "location": "Dubai, United Arab Emirates",
+      "type": "Full-time",
+      "startDate": "2025-10",
+      "endDate": null,
+      "current": true,
+      "description": "TODO: Add a brief description of your role and what Sentiment AI does",
+      "responsibilities": [
+        "TODO: Add your key responsibilities as Full Stack Engineer",
+        "TODO: Add another responsibility",
+        "TODO: Add another responsibility",
+        "TODO: Add another responsibility"
+      ],
+      "technologies": ["TODO: Add technologies you use (e.g., React, Node.js, Python, AWS, etc.)"],
+      "achievements": [
+        "TODO: Add key achievements in this role (optional)"
+      ]
+    },
+    {
+      "id": "2",
+      "company": "Sentiment AI",
+      "position": "Founding AI/ML Engineer Intern",
+      "location": "Dubai, United Arab Emirates",
+      "type": "Internship",
+      "startDate": "2025-07",
+      "endDate": "2025-09",
+      "current": false,
+      "description": "TODO: Add description of your internship role and contributions",
+      "responsibilities": [
+        "TODO: Add your key responsibilities as AI/ML Engineer Intern",
+        "TODO: Add another responsibility",
+        "TODO: Add another responsibility"
+      ],
+      "technologies": ["TODO: Add AI/ML technologies used (e.g., Python, TensorFlow, PyTorch, LangChain, etc.)"],
+      "achievements": [
+        "TODO: Add achievements during internship (optional)"
+      ]
+    },
+    {
+      "id": "3",
+      "company": "Heriot-Watt University",
+      "position": "Teaching Assistant",
+      "location": "Dubai, United Arab Emirates",
+      "type": "Part-time",
+      "startDate": "2024-08",
+      "endDate": "2025-04",
+      "current": false,
+      "description": "Assisted professors in weekly labs and taught students new concepts throughout the course.",
+      "responsibilities": [
+        "Assisted Professors in weekly Labs",
+        "Taught Students new concepts that help them throughout the course",
+        "Held extra tutorials for Direct Entry Students",
+        "Helped with Homework and assignments"
+      ],
+      "technologies": ["TODO: Add technologies/subjects taught (e.g., Python, Java, Data Structures, etc.)"],
+      "achievements": [
+        "TODO: Add achievements (e.g., student feedback, number of students helped, etc.) - optional"
+      ]
+    },
+    {
+      "id": "4",
+      "company": "Circle Bit",
+      "position": "Enterprise Software Engineer and Data Science Intern",
+      "location": "Dubai, United Arab Emirates",
+      "type": "Internship",
+      "startDate": "2024-07",
+      "endDate": "2024-08",
+      "current": false,
+      "description": "Delivered modular Angular components for an Azure-hosted web application with C# and MongoDB backend in a Scrum team.",
+      "responsibilities": [
+        "Delivered modular Angular components for Azure-hosted web application",
+        "Utilized D3.js library to visualize user data in a clean and interactive manner",
+        "Regularly performed code reviews and set up strict GitHub commit, pull requests, and development conventions",
+        "Responsible for version control using GitHub's Releases feature with excellent changelog"
+      ],
+      "technologies": ["Angular", "C#", "MongoDB", "Azure", "D3.js", "GitHub"],
+      "achievements": [
+        "TODO: Add achievements (optional)"
+      ]
+    },
+    {
+      "id": "5",
+      "company": "Mesh Firm",
+      "position": "GenAI Engineer Intern",
+      "location": "Denmark (Remote)",
+      "type": "Internship",
+      "startDate": "2024-03",
+      "endDate": "2024-05",
+      "current": false,
+      "description": "Worked in a Scrum Team on the project 'Hepha', the future of Product Management and Product Placement.",
+      "responsibilities": [
+        "Fine-Tuned LLMs using LangChain on Product management Data scraped from various articles",
+        "Built API routes for the Chatbot using Flask to enable AI Agents to communicate with one another",
+        "Performed Data Parsing to acquire required data for fine-tuning the LLMs from articles, research data, and talks",
+        "Cleaned acquired data from outliers and bad data",
+        "Implemented Feature Extraction and Data Chunking to store data on Pinecone",
+        "Developed Generative AI utilizing all AI Agents created to make the first prototype"
+      ],
+      "technologies": ["Python", "LangChain", "Flask", "Pinecone", "LLMs", "Data Scraping", "GenAI"],
+      "achievements": [
+        "Successfully built first prototype of 'Hepha' product management AI system"
+      ]
+    },
+    {
+      "id": "6",
+      "company": "KLNA",
+      "position": "Web Programming Freelancer",
+      "location": "Lebanon (Remote)",
+      "type": "Freelance",
+      "startDate": "2023-08",
+      "endDate": "2023-11",
+      "current": false,
+      "description": "Adapted corporate website to align with client requirements and continuously integrated new features.",
+      "responsibilities": [
+        "Adapted the corporate website to align with specific requirements outlined by the client",
+        "Continuously integrated features that aligned with the client's needs",
+        "Changed the design of web pages to improve UI/UX"
+      ],
+      "technologies": ["TODO: Add technologies used (e.g., HTML, CSS, JavaScript, React, etc.)"],
+      "achievements": [
+        "TODO: Add achievements (e.g., improved user engagement, client satisfaction, etc.) - optional"
+      ]
+    }
+  ]
+}

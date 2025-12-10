@@ -6,22 +6,10 @@ import {
   Mail, 
   Phone, 
   MapPin, 
-  Clock, 
-  CheckCircle2,
-  Globe,
-  Code,
-  Lightbulb,
-  Zap
+  Clock
 } from "lucide-react";
 import profileData from "@/data/profile.json";
 import contactData from "@/data/contact.json";
-
-const serviceIcons: Record<string, any> = {
-  globe: Globe,
-  api: Code,
-  lightbulb: Lightbulb,
-  zap: Zap,
-};
 
 export default function ContactPage() {
   return (
@@ -125,55 +113,6 @@ export default function ContactPage() {
           </CardContent>
         </Card>
       </div>
-
-      <Card className="mb-8">
-        <CardHeader>
-          <CardTitle>Services Offered</CardTitle>
-          <CardDescription>What I can help you with</CardDescription>
-        </CardHeader>
-        <CardContent>
-          <div className="grid gap-4 md:grid-cols-2">
-            {contactData.services.map((service) => {
-              const Icon = serviceIcons[service.icon] || Code;
-              
-              return (
-                <div key={service.id} className="flex gap-4 rounded-lg border p-4">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 flex-shrink-0">
-                    <Icon className="h-6 w-6 text-primary" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold">{service.title}</h3>
-                    <p className="text-sm text-muted-foreground mt-1">{service.description}</p>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </CardContent>
-      </Card>
-
-      <Card>
-        <CardHeader>
-          <CardTitle>Frequently Asked Questions</CardTitle>
-          <CardDescription>Common questions about working together</CardDescription>
-        </CardHeader>
-        <CardContent>
-          <div className="space-y-6">
-            {contactData.faqs.map((faq, index) => (
-              <div key={index}>
-                <h3 className="font-semibold mb-2 flex items-start gap-2">
-                  <CheckCircle2 className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                  {faq.question}
-                </h3>
-                <p className="text-sm text-muted-foreground leading-relaxed ml-7">
-                  {faq.answer}
-                </p>
-                {index < contactData.faqs.length - 1 && <Separator className="mt-6" />}
-              </div>
-            ))}
-          </div>
-        </CardContent>
-      </Card>
     </div>
   );
 }

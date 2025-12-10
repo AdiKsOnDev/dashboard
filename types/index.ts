@@ -80,18 +80,6 @@ export interface Certification {
   credentialId: string;
 }
 
-export interface Service {
-  id: string;
-  title: string;
-  description: string;
-  icon: string;
-}
-
-export interface FAQ {
-  question: string;
-  answer: string;
-}
-
 export interface Contact {
   availability: {
     status: string;
@@ -103,8 +91,6 @@ export interface Contact {
     timezone: string;
     hours: string;
   };
-  services: Service[];
-  faqs: FAQ[];
 }
 
 export interface BlogPost {

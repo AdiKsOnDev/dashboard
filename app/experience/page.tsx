@@ -14,8 +14,9 @@ function formatDate(dateString: string | null) {
 function calculateDuration(start: string, end: string | null) {
   const startDate = new Date(start);
   const endDate = end ? new Date(end) : new Date();
+  // Add 1 to make it inclusive (e.g., Jul to Sep = 3 months, not 2)
   const months = (endDate.getFullYear() - startDate.getFullYear()) * 12 + 
-                 (endDate.getMonth() - startDate.getMonth());
+                 (endDate.getMonth() - startDate.getMonth()) + 1;
   const years = Math.floor(months / 12);
   const remainingMonths = months % 12;
   
@@ -101,18 +102,22 @@ export default function ExperiencePage() {
                     </div>
                   )}
 
-                  <Separator />
+                  {exp.technologies.length > 0 && (
+                    <>
+                      <Separator />
 
-                  <div>
-                    <h4 className="text-sm font-semibold mb-3">Technologies Used</h4>
-                    <div className="flex flex-wrap gap-2">
-                      {exp.technologies.map((tech) => (
-                        <Badge key={tech} variant="secondary">
-                          {tech}
-                        </Badge>
-                      ))}
-                    </div>
-                  </div>
+                      <div>
+                        <h4 className="text-sm font-semibold mb-3">Technologies Used</h4>
+                        <div className="flex flex-wrap gap-2">
+                          {exp.technologies.map((tech) => (
+                            <Badge key={tech} variant="secondary">
+                              {tech}
+                            </Badge>
+                          ))}
+                        </div>
+                      </div>
+                    </>
+                  )}
                 </CardContent>
               </Card>
             </div>

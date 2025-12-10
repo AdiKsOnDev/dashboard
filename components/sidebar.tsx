@@ -18,7 +18,6 @@ import {
   Globe,
 } from "lucide-react";
 import { Profile } from "@/types";
-import { ThemeToggle } from "@/components/theme-toggle";
 
 interface SidebarProps {
   profile: Profile;
@@ -84,7 +83,7 @@ export function Sidebar({ profile }: SidebarProps) {
       </div>
 
       <div className="border-t p-6">
-        <div className="flex justify-center gap-2 mb-4">
+        <div className="flex justify-center gap-2">
           {Object.entries(profile.social).map(([key, url]) => {
             const Icon = socialIcons[key as keyof typeof socialIcons];
             return (
@@ -102,9 +101,6 @@ export function Sidebar({ profile }: SidebarProps) {
               </Button>
             );
           })}
-        </div>
-        <div className="flex justify-center">
-          <ThemeToggle />
         </div>
       </div>
     </div>

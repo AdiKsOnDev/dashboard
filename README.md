@@ -17,6 +17,7 @@ A modern, dashboard-style portfolio built with Next.js, TypeScript, and shadcn/u
 - **Beautiful UI**: Uses shadcn/ui components for a polished look
 - **Easy Navigation**: Sidebar navigation with mobile menu support
 - **Blog Section**: Showcase your writing and technical articles
+- **Blog Writer**: When in development mode (i.e. `pnpm run dev`)
 
 ## Project Structure
 
@@ -35,10 +36,20 @@ portfolio/
 │   ├── theme-provider.tsx # Theme context provider
 │   └── theme-toggle.tsx  # Dark/light mode toggle
 ├── data/                 # JSON data files
-│   ├── profile.json      # Personal information
-│   ├── projects.json     # Project portfolio
-│   ├── experience.json   # Work history
-│   ├── blog.json         # Blog posts
-│   └── contact.json      # Contact details and services
+│   ├── config/           # Configuration data
+│   │   ├── profile.json  # Personal information
+│   │   └── contact.json  # Contact details
+│   └── content/          # Content data
+│       ├── projects.json # Project portfolio
+│       ├── experience.json # Work history
+│       ├── skills.json   # Skills and proficiencies
+│       └── blogs/        # Blog posts
+│           ├── index.json # Blog index
+│           └── *.json    # Individual blog posts
+├── hooks/                # Custom React hooks
+├── lib/                  # Utility functions
+│   ├── utils.ts          # General utilities
+│   ├── navigation.ts     # Navigation configuration
+│   └── blog-utils.ts     # Blog-specific utilities
 └── types/                # TypeScript type definitions
 ```

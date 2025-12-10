@@ -1,6 +1,7 @@
 # Portfolio Template
-
 A modern, dashboard-style portfolio template built with Next.js, TypeScript, and shadcn/ui. All content is managed through JSON files for easy customization.
+
+<img width="2438" height="1637" alt="image" src="https://github.com/user-attachments/assets/ded650dc-81ed-4925-96fa-5dd3b3d89589" />
 
 ## Features
 

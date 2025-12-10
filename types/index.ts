@@ -9,14 +9,11 @@ export interface Profile {
   social: {
     github: string;
     linkedin: string;
-    twitter: string;
-    website: string;
+    kaggle: string;
   };
   stats: {
-    yearsExperience: number;
-    projectsCompleted: number;
-    clientsSatisfied: number;
-    coffeeConsumed: number;
+    yearsExperience: string;
+    crashouts: string;
   };
 }
 

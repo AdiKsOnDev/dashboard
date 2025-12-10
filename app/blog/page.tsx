@@ -5,6 +5,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Calendar, Clock, Star } from "lucide-react";
+import Link from "next/link";
 import blogData from "@/data/blogs/index.json";
 
 export default function BlogPage() {
@@ -32,7 +33,8 @@ export default function BlogPage() {
           </div>
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {pinnedPosts.map((post) => (
-              <Card key={post.id} className="overflow-hidden group cursor-pointer hover:shadow-lg transition-shadow">
+              <Link key={post.id} href={`/blog/${post.slug}`}>
+                <Card className="overflow-hidden group cursor-pointer hover:shadow-lg transition-shadow h-full">
                 <div className="aspect-video overflow-hidden bg-muted">
                   <img
                     src={post.coverImage}
@@ -66,6 +68,7 @@ export default function BlogPage() {
                   </div>
                 </CardContent>
               </Card>
+              </Link>
             ))}
           </div>
         </div>
@@ -86,7 +89,8 @@ export default function BlogPage() {
 
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {filteredPosts.map((post) => (
-          <Card key={post.id} className="overflow-hidden group cursor-pointer hover:shadow-lg transition-shadow">
+          <Link key={post.id} href={`/blog/${post.slug}`}>
+            <Card className="overflow-hidden group cursor-pointer hover:shadow-lg transition-shadow h-full">
             <div className="aspect-video overflow-hidden bg-muted">
               <img
                 src={post.coverImage}
@@ -121,6 +125,7 @@ export default function BlogPage() {
               </div>
             </CardContent>
           </Card>
+          </Link>
         ))}
       </div>
     </div>

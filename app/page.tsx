@@ -7,6 +7,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Mail, MapPin, Phone, Calendar, Star, GitCommit, Flame } from "lucide-react";
 import { ProjectModal } from "@/components/project-modal";
+import { LoadingDots } from "@/components/loading-dots";
 import { Project } from "@/types";
 import profileData from "@/data/profile.json";
 import projectsData from "@/data/projects.json";
@@ -95,7 +96,7 @@ export default function Home() {
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">
-              {loading ? '...' : githubStats.totalStars}
+              {loading ? <LoadingDots /> : githubStats.totalStars.toLocaleString()}
             </div>
             <p className="text-xs text-muted-foreground mt-1">Across all repositories</p>
           </CardContent>
@@ -108,7 +109,7 @@ export default function Home() {
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">
-              {loading ? '...' : githubStats.commitsLastYear}
+              {loading ? <LoadingDots /> : githubStats.commitsLastYear.toLocaleString()}
             </div>
             <p className="text-xs text-muted-foreground mt-1">Public contributions</p>
           </CardContent>

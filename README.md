@@ -1,36 +1,155 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portfolio Template
+
+A modern, dashboard-style portfolio template built with Next.js, TypeScript, and shadcn/ui. All content is managed through JSON files for easy customization.
+
+## Features
+
+- **Dashboard Layout**: Clean, professional dashboard-style interface
+- **Dark/Light Mode**: Built-in theme toggle with system preference support
+- **Fully Responsive**: Works seamlessly on desktop, tablet, and mobile
+- **JSON-Driven**: All content stored in JSON files for easy updates
+- **Modern Stack**: Built with Next.js 15, TypeScript, and Tailwind CSS
+- **Beautiful UI**: Uses shadcn/ui components for a polished look
+- **Easy Navigation**: Sidebar navigation with mobile menu support
+- **Blog Section**: Showcase your writing and technical articles
+
+## Project Structure
+
+```
+portfolio/
+├── app/                    # Next.js app directory
+│   ├── page.tsx           # Overview/Dashboard page
+│   ├── projects/          # Projects showcase
+│   ├── experience/        # Work experience timeline
+│   ├── blog/              # Blog posts
+│   └── contact/           # Contact information
+├── components/            # React components
+│   ├── ui/               # shadcn/ui components
+│   ├── sidebar.tsx       # Desktop sidebar navigation
+│   ├── mobile-nav.tsx    # Mobile navigation
+│   ├── theme-provider.tsx # Theme context provider
+│   └── theme-toggle.tsx  # Dark/light mode toggle
+├── data/                 # JSON data files
+│   ├── profile.json      # Personal information
+│   ├── projects.json     # Project portfolio
+│   ├── experience.json   # Work history
+│   ├── blog.json         # Blog posts
+│   └── contact.json      # Contact details and services
+└── types/                # TypeScript type definitions
+```
 
 ## Getting Started
 
-First, run the development server:
+1. **Install dependencies**:
+   ```bash
+   npm install
+   ```
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+2. **Customize your data**:
+   Edit the JSON files in the `data/` directory:
+   - `profile.json` - Your personal information and stats
+   - `projects.json` - Your project portfolio
+   - `experience.json` - Your work experience
+   - `blog.json` - Your blog posts and articles
+   - `contact.json` - Contact information and services
+
+3. **Run the development server**:
+   ```bash
+   npm run dev
+   ```
+
+4. **Open your browser**:
+   Navigate to [http://localhost:3000](http://localhost:3000)
+
+## Customization Guide
+
+### Update Profile Information
+
+Edit `data/profile.json`:
+```json
+{
+  "name": "Your Name",
+  "title": "Your Title",
+  "email": "your.email@example.com",
+  ...
+}
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Add Projects
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Edit `data/projects.json` to add or modify projects:
+```json
+{
+  "projects": [
+    {
+      "title": "Project Name",
+      "description": "Short description",
+      "tags": ["React", "Node.js"],
+      ...
+    }
+  ]
+}
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Update Experience
 
-## Learn More
+Edit `data/experience.json` to add work experience:
+```json
+{
+  "experience": [
+    {
+      "company": "Company Name",
+      "position": "Your Position",
+      "startDate": "2023-01",
+      "current": true,
+      ...
+    }
+  ]
+}
+```
 
-To learn more about Next.js, take a look at the following resources:
+### Add Blog Posts
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Edit `data/blog.json` to add blog posts:
+```json
+{
+  "posts": [
+    {
+      "title": "Post Title",
+      "excerpt": "Short description",
+      "category": "Frontend",
+      "tags": ["React", "TypeScript"],
+      "featured": true,
+      ...
+    }
+  ]
+}
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Build for Production
 
-## Deploy on Vercel
+```bash
+npm run build
+npm start
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Deploy
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This portfolio can be deployed to:
+- **Vercel** (recommended): `vercel deploy`
+- **Netlify**: Connect your Git repository
+- **Any Node.js hosting**: Build and deploy the `.next` folder
+
+## Tech Stack
+
+- **Framework**: Next.js 15 (App Router)
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS
+- **UI Components**: shadcn/ui
+- **Theme**: next-themes (dark/light mode)
+- **Icons**: Lucide React
+- **Fonts**: Inter
+
+## License
+
+MIT License - feel free to use this template for your own portfolio!

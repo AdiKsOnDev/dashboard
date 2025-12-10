@@ -189,8 +189,8 @@ export default function Home() {
 
       <Card>
         <CardHeader>
-          <CardTitle>Recent Projects</CardTitle>
-          <CardDescription>Latest work highlights</CardDescription>
+          <CardTitle>Pinned Projects</CardTitle>
+          <CardDescription>Work I am most proud of</CardDescription>
         </CardHeader>
         <CardContent>
           <div className="grid gap-6 md:grid-cols-3">

@@ -138,8 +138,8 @@
   }
 }
 
-/* Loading dots animation */
-@keyframes bounce {
+/* Loading dots animation with wave effect */
+@keyframes bounce-dot {
   0%, 80%, 100% {
     transform: translateY(0);
   }
@@ -148,8 +148,19 @@
   }
 }
 
-.animate-bounce {
-  animation: bounce 1.4s infinite ease-in-out;
+.animate-bounce-1 {
+  animation: bounce-dot 1.4s infinite ease-in-out;
+  animation-delay: 0s;
+}
+
+.animate-bounce-2 {
+  animation: bounce-dot 1.4s infinite ease-in-out;
+  animation-delay: 0.2s;
+}
+
+.animate-bounce-3 {
+  animation: bounce-dot 1.4s infinite ease-in-out;
+  animation-delay: 0.4s;
 }
 
 /* Syntax highlighting for code blocks */

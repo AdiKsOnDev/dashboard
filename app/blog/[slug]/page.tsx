@@ -16,8 +16,9 @@ export async function generateStaticParams() {
   }));
 }
 
-export async function generateMetadata({ params }: { params: { slug: string } }) {
-  const blogPath = path.join(process.cwd(), 'data/blogs', `${params.slug}.json`);
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const blogPath = path.join(process.cwd(), 'data/blogs', `${slug}.json`);
   
   if (!fs.existsSync(blogPath)) {
     return {
@@ -33,8 +34,9 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   };
 }
 
-export default function BlogPostPage({ params }: { params: { slug: string } }) {
-  const blogPath = path.join(process.cwd(), 'data/blogs', `${params.slug}.json`);
+export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const blogPath = path.join(process.cwd(), 'data/blogs', `${slug}.json`);
   
   if (!fs.existsSync(blogPath)) {
     notFound();

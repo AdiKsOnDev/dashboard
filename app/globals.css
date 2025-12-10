@@ -129,4 +129,33 @@
     -webkit-box-orient: vertical;
     overflow: hidden;
   }
+  
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
+
+/* Syntax highlighting for code blocks */
+.hljs {
+  @apply !bg-muted/50 text-sm;
+}
+
+/* Markdown prose styles */
+.prose {
+  @apply text-foreground;
+}
+
+.prose :where(code):not(:where([class~="not-prose"] *)) {
+  @apply text-foreground;
+}
+
+.prose :where(pre):not(:where([class~="not-prose"] *)) {
+  @apply bg-muted/50 border border-border;
+}
+
+.prose :where(pre code):not(:where([class~="not-prose"] *)) {
+  @apply bg-transparent p-0;
 }

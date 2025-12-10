@@ -197,7 +197,7 @@
       "title": "Gruvtopia",
       "description": "Hyprland rice with beautiful Gruvbox theme aesthetic for Arch Linux enthusiasts.",
       "longDescription": "A polished Hyprland configuration featuring the beloved Gruvbox color scheme. Includes custom shell scripts, CSS styling, and carefully curated system integrations that create a cohesive and visually appealing desktop environment. Designed for developers who appreciate the warm, retro aesthetic of Gruvbox while maintaining modern functionality.",
-      "image": "https://i.redd.it/3840x2160-gruvbox-stripes-all-wallpapers-light-dark-all-v0-vjavx257pl991.png?width=3840&format=png&auto=webp&s=c46de7a668a5d0bc12b90ff0e9867d0b942816fe",
+      "image": "/dashboard/assets/gruvtopia.png",
       "tags": [
         "Shell",
         "CSS",

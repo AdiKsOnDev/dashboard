@@ -2,7 +2,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { MapPin, Calendar, Briefcase, CheckCircle2 } from "lucide-react";
-import experienceData from "@/data/experience.json";
+import experienceData from "@/data/content/experience.json";
 
 function formatDate(dateString: string | null) {
   if (!dateString) return "Present";

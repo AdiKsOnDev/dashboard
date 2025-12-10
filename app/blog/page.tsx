@@ -1,12 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Calendar, Clock, Star } from "lucide-react";
-import Link from "next/link";
-import blogData from "@/data/blogs/index.json";
+import { Star } from "lucide-react";
+import { BlogCard } from "@/components/blog-card";
+import blogData from "@/data/content/blogs/index.json";
 
 export default function BlogPage() {
   const [selectedCategory, setSelectedCategory] = useState("all");
@@ -33,42 +31,7 @@ export default function BlogPage() {
           </div>
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {pinnedPosts.map((post) => (
-              <Link key={post.id} href={`/blog/${post.slug}`}>
-                <Card className="overflow-hidden group cursor-pointer hover:shadow-lg transition-shadow h-full">
-                <div className="aspect-video overflow-hidden bg-muted">
-                  <img
-                    src={post.coverImage}
-                    alt={post.title}
-                    className="h-full w-full object-cover grayscale transition-all group-hover:grayscale-0 group-hover:scale-105"
-                  />
-                </div>
-                <CardHeader>
-                  <div className="flex items-center gap-2 mb-2">
-                    <Badge variant="secondary">{post.category}</Badge>
-                    <Badge variant="outline" className="text-xs">
-                      <Star className="h-3 w-3 mr-1 fill-primary text-primary" />
-                      Pinned
-                    </Badge>
-                  </div>
-                  <CardTitle className="text-xl group-hover:text-primary transition-colors">
-                    {post.title}
-                  </CardTitle>
-                  <CardDescription className="line-clamp-2">{post.excerpt}</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <div className="flex items-center gap-4 text-sm text-muted-foreground">
-                    <div className="flex items-center gap-1">
-                      <Calendar className="h-4 w-4 text-primary" />
-                      <span>{new Date(post.publishedAt).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })}</span>
-                    </div>
-                    <div className="flex items-center gap-1">
-                      <Clock className="h-4 w-4 text-primary" />
-                      <span>{post.readTime}</span>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-              </Link>
+              <BlogCard key={post.id} post={post} variant="pinned" />
             ))}
           </div>
         </div>
@@ -89,43 +52,7 @@ export default function BlogPage() {
 
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {filteredPosts.map((post) => (
-          <Link key={post.id} href={`/blog/${post.slug}`}>
-            <Card className="overflow-hidden group cursor-pointer hover:shadow-lg transition-shadow h-full">
-            <div className="aspect-video overflow-hidden bg-muted">
-              <img
-                src={post.coverImage}
-                alt={post.title}
-                className="h-full w-full object-cover grayscale transition-all group-hover:grayscale-0 group-hover:scale-105"
-              />
-            </div>
-            <CardHeader>
-              <Badge variant="secondary" className="w-fit mb-2">{post.category}</Badge>
-              <CardTitle className="text-lg group-hover:text-primary transition-colors">
-                {post.title}
-              </CardTitle>
-              <CardDescription className="line-clamp-2">{post.excerpt}</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <div className="flex flex-wrap gap-1 mb-3">
-                {post.tags.slice(0, 3).map((tag) => (
-                  <Badge key={tag} variant="outline" className="text-xs">
-                    {tag}
-                  </Badge>
-                ))}
-              </div>
-              <div className="flex items-center gap-4 text-sm text-muted-foreground">
-                <div className="flex items-center gap-1">
-                  <Calendar className="h-4 w-4 text-primary" />
-                  <span>{new Date(post.publishedAt).toLocaleDateString("en-US", { month: "short", day: "numeric" })}</span>
-                </div>
-                <div className="flex items-center gap-1">
-                  <Clock className="h-4 w-4 text-primary" />
-                  <span>{post.readTime}</span>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-          </Link>
+          <BlogCard key={post.id} post={post} />
         ))}
       </div>
     </div>

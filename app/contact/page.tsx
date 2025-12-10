@@ -8,8 +8,8 @@ import {
   MapPin, 
   Clock
 } from "lucide-react";
-import profileData from "@/data/profile.json";
-import contactData from "@/data/contact.json";
+import profileData from "@/data/config/profile.json";
+import contactData from "@/data/config/contact.json";
 
 export default function ContactPage() {
   return (

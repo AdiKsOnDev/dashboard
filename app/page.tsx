@@ -41,21 +41,23 @@ export default function Home() {
       // Calculate total stars
       const totalStars = repos.reduce((sum: number, repo: any) => sum + repo.stargazers_count, 0);
       
-      // Fetch commit activity for the last year
-      const oneYearAgo = new Date();
-      oneYearAgo.setFullYear(oneYearAgo.getFullYear() - 1);
+      // Fetch contributions from GitHub's contribution graph
+      // We'll scrape the SVG from the profile page since GitHub doesn't provide this in the REST API
+      const contributionsResponse = await fetch(`https://github.com/users/${username}/contributions`);
+      const contributionsHTML = await contributionsResponse.text();
       
-      const eventsResponse = await fetch(`https://api.github.com/users/${username}/events/public?per_page=100`);
-      const events = await eventsResponse.json();
+      // Parse the contribution count from the HTML
+      // The format is like "2,540 contributions in the last year"
+      const contributionMatch = contributionsHTML.match(/data-count="(\d+)"/g);
       
-      // Count push events (commits) from the last year
-      const commitsLastYear = events.filter((event: any) => {
-        if (event.type === 'PushEvent') {
-          const eventDate = new Date(event.created_at);
-          return eventDate >= oneYearAgo;
-        }
-        return false;
-      }).reduce((sum: number, event: any) => sum + (event.payload?.commits?.length || 0), 0);
+      let commitsLastYear = 0;
+      if (contributionMatch) {
+        // Sum all the data-count values from the contribution graph
+        commitsLastYear = contributionMatch.reduce((sum, match) => {
+          const count = parseInt(match.match(/\d+/)?.[0] || '0');
+          return sum + count;
+        }, 0);
+      }
       
       setGithubStats({ totalStars, commitsLastYear });
       setLoading(false);

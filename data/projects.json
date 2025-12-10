@@ -1,0 +1,224 @@
+{
+  "projects": [
+    {
+      "id": "1",
+      "title": "StarComp",
+      "description": "Modern tiling Wayland compositor built in Rust using the Smithay library for high-performance window management.",
+      "longDescription": "StarComp is a cutting-edge tiling Wayland compositor written in Rust, leveraging the powerful Smithay library for low-level Wayland protocol implementation. Designed for efficiency and customization, it provides a blazingly fast window management experience with minimal resource usage. Features include dynamic tiling layouts, keyboard-driven workflow, and extensive configuration options. Built with memory safety and performance in mind, utilizing Rust's zero-cost abstractions and ownership system to deliver a compositor that's both reliable and lightning-fast.",
+      "image": "https://www.developer-tech.com/wp-content/uploads/2021/02/rust-foundation-programming-language-development-developer.jpg",
+      "tags": [
+        "Rust",
+        "Wayland",
+        "Smithay",
+        "Compositor",
+        "Linux",
+        "Tiling WM"
+      ],
+      "category": "Linux",
+      "status": "in-progress",
+      "year": 2025,
+      "client": "Open Source",
+      "duration": "Ongoing",
+      "role": "Solo Developer",
+      "links": {
+      },
+      "metrics": {
+        "users": "In Development",
+        "performance": "-",
+        "impact": "-"
+      }
+    },
+    {
+      "id": "2",
+      "title": "linear-cli",
+      "description": "CLI automation tool for Linear Issue Tracker with comprehensive GraphQL API integration, available on PyPI and AUR.",
+      "longDescription": "A high-performance command-line interface for Linear Issue Tracker that streamlines project management workflows. Built with Python and GraphQL, featuring robust CI/CD pipelines, semantic versioning, and comprehensive test coverage. Achieves sub-2-second response times for complex queries and supports all major Linear operations including issue management, team coordination, and project tracking.",
+      "image": "https://linear.app/static/release/meta.png",
+      "tags": [
+        "Python",
+        "GraphQL",
+        "CLI",
+        "Linear API",
+        "PyPI",
+        "AUR"
+      ],
+      "category": "Developer Tools",
+      "status": "completed",
+      "year": 2025,
+      "client": "Open Source",
+      "duration": "2 weeks",
+      "role": "Solo Engineer",
+      "links": {
+        "github": "https://github.com/AdiKsOnDev/linear-cli"
+      },
+      "metrics": {
+        "users": "5 stars",
+        "performance": "< 2s response time",
+        "impact": "Published on PyPI & AUR"
+      }
+    },
+    {
+      "id": "3",
+      "title": "Ontology Database Layer",
+      "description": "Scalable database infrastructure for enterprise ontology management, handling 1M+ records for client integration.",
+      "longDescription": "Built the foundational database layer for SentimentAI's ontology system. An ontology is a structured framework that defines relationships between concepts and entities. This system enables seamless integration of new clients into the company's project ecosystem by providing a robust, scalable data model that handles complex hierarchical relationships and supports rapid client onboarding with zero downtime.",
+      "image": "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=800&h=600&fit=crop",
+      "tags": [
+        "Python",
+        "PostgreSQL",
+        "SQLAlchemy",
+        "Database Design",
+        "Ontology"
+      ],
+      "category": "Enterprise Software",
+      "status": "completed",
+      "year": 2025,
+      "client": "SentimentAI Ltd",
+      "duration": "3 months",
+      "role": "Full-Stack Engineer",
+      "links": {},
+      "metrics": {
+        "users": "Restricted",
+        "performance": "1M+ records",
+        "impact": "Seamless client integration"
+      }
+    },
+    {
+      "id": "4",
+      "title": "Ontology REST API",
+      "description": "High-performance RESTful API for ontology management with comprehensive endpoints and real-time data access.",
+      "longDescription": "Developed a production-grade FastAPI service that exposes the ontology database through a clean, well-documented REST interface. Implements advanced features including query optimization, caching strategies, authentication, and rate limiting. Supports complex filtering, pagination, and bulk operations while maintaining sub-100ms response times for standard queries.",
+      "image": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&h=600&fit=crop",
+      "tags": [
+        "Python",
+        "FastAPI",
+        "REST API",
+        "PostgreSQL",
+        "Docker"
+      ],
+      "category": "Enterprise Software",
+      "status": "completed",
+      "year": 2025,
+      "client": "SentimentAI Ltd",
+      "duration": "2 months",
+      "role": "Full-Stack Engineer",
+      "links": {},
+      "metrics": {
+        "users": "Restricted",
+        "performance": "< 100ms response",
+        "impact": "Real-time data access"
+      }
+    },
+    {
+      "id": "5",
+      "title": "OES UI Platform",
+      "description": "Modern TypeScript frontend for the Ontology Excellence System with intuitive data visualization and management.",
+      "longDescription": "Built a comprehensive web application for managing and visualizing ontology data. Features include interactive dashboards, real-time updates, advanced filtering, and bulk operations. Implemented with React, TypeScript, and modern state management, providing a seamless user experience for complex data operations. Includes comprehensive testing, CI/CD integration, and Docker containerization.",
+      "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop",
+      "tags": [
+        "TypeScript",
+        "React",
+        "Docker",
+        "CI/CD",
+        "Frontend"
+      ],
+      "category": "Enterprise Software",
+      "status": "completed",
+      "year": 2025,
+      "client": "SentimentAI Ltd",
+      "duration": "4 months",
+      "role": "Full-Stack Engineer",
+      "links": {},
+      "metrics": {
+        "users": "Restricted",
+        "performance": "Real-time updates",
+        "impact": "Intuitive data management"
+      }
+    },
+    {
+      "id": "6",
+      "title": "HyprValley",
+      "description": "Arch Linux rice featuring 5 stunning themes (Space, Nature, Ocean, Sakura, Code-RED) for Hyprland window manager.",
+      "longDescription": "A comprehensive Hyprland configuration with meticulously crafted themes that transform the Linux desktop experience. Each theme includes custom Waybar configurations, color schemes, wallpapers, and system integrations. Gained significant traction in the Linux community with 40 GitHub stars and 200+ upvotes on Reddit, demonstrating strong community appreciation for the aesthetic and functional design.",
+      "image": "https://preview.redd.it/hyprland-meet-hyprvalley-my-very-first-attempt-at-linux-v0-rw0xb0ast90d1.png?width=1080&crop=smart&auto=webp&s=24355e7aec706909341e94671a9c5e0b61f9c58c",
+      "tags": [
+        "Shell",
+        "CSS",
+        "Hyprland",
+        "Linux",
+        "Waybar",
+        "Rice"
+      ],
+      "category": "Linux",
+      "status": "completed",
+      "year": 2024,
+      "client": "Open Source",
+      "duration": "1 Week",
+      "role": "Solo Engineer",
+      "links": {
+        "github": "https://github.com/AdiKsOnDev/HyprValley"
+      },
+      "metrics": {
+        "users": "40 stars",
+        "performance": "200+ Reddit upvotes",
+        "impact": "5 unique themes"
+      }
+    },
+    {
+      "id": "7",
+      "title": "YouTranslate",
+      "description": "AI-powered YouTube video translator with voice cloning capabilities using ElevenLabs API.",
+      "longDescription": "One of my first Python projects that helped me learn the language and AI integration. Takes a YouTube video, clones the speaker's voice, and recreates the video in a different language. Despite being an early project with legacy code, it gained significant community interest with 111 stars and 14 forks, demonstrating the value of the concept. Now archived as a learning milestone.",
+      "image": "https://github.com/AdiKsOnDev/YouTranslate/raw/main/Assets/logo.jpg",
+      "tags": [
+        "Python",
+        "AI",
+        "ElevenLabs",
+        "Voice Cloning",
+        "YouTube API"
+      ],
+      "category": "AI/ML",
+      "status": "archived",
+      "year": 2023,
+      "client": "Open Source",
+      "duration": "2 months",
+      "role": "Solo Engineer",
+      "links": {
+        "github": "https://github.com/AdiKsOnDev/YouTranslate"
+      },
+      "metrics": {
+        "users": "111 stars",
+        "performance": "14 forks",
+        "impact": "First Python project"
+      }
+    },
+    {
+      "id": "8",
+      "title": "Gruvtopia",
+      "description": "Hyprland rice with beautiful Gruvbox theme aesthetic for Arch Linux enthusiasts.",
+      "longDescription": "A polished Hyprland configuration featuring the beloved Gruvbox color scheme. Includes custom shell scripts, CSS styling, and carefully curated system integrations that create a cohesive and visually appealing desktop environment. Designed for developers who appreciate the warm, retro aesthetic of Gruvbox while maintaining modern functionality.",
+      "image": "https://private-user-images.githubusercontent.com/80326762/484429976-4b44d8d0-80ac-4ed5-805d-4ef1f74abb6a.png?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NjUzODA0NjksIm5iZiI6MTc2NTM4MDE2OSwicGF0aCI6Ii84MDMyNjc2Mi80ODQ0Mjk5NzYtNGI0NGQ4ZDAtODBhYy00ZWQ1LTgwNWQtNGVmMWY3NGFiYjZhLnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTEyMTAlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUxMjEwVDE1MjI0OVomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTI2YWEzZmY5YWY5YTQzYjc5ODM5MmFkNThkM2Y0MDY5M2ZlOGQ2YTI4MDg3NDViYzQ5YjkxNGRhYzQ3MDI4Y2MmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.oMiuhSqVBytW86kxK1LTj7UPqIMLVQ1im3xP31F0oDk",
+      "tags": [
+        "Shell",
+        "CSS",
+        "Hyprland",
+        "Gruvbox",
+        "Linux"
+      ],
+      "category": "Linux",
+      "status": "completed",
+      "year": 2025,
+      "client": "Open Source",
+      "duration": "6 Hours",
+      "role": "Solo Engineer",
+      "links": {
+        "github": "https://github.com/AdiKsOnDev/Gruvtopia"
+      },
+      "metrics": {
+        "users": "Community project",
+        "performance": "Gruvbox theme",
+        "impact": "Complete rice setup"
+      }
+    }
+  ]
+}

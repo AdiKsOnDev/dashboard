@@ -8,7 +8,7 @@ import { Calendar, Clock, ArrowLeft, Share2 } from 'lucide-react';
 import { BlogPost } from '@/types';
 import { MarkdownContent } from '@/components/markdown-content';
 import Link from 'next/link';
-import blogIndex from '@/data/blogs/index.json';
+import blogIndex from '@/data/content/blogs/index.json';
 
 export async function generateStaticParams() {
   return blogIndex.posts.map((post) => ({
@@ -18,7 +18,7 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const blogPath = path.join(process.cwd(), 'data/blogs', `${slug}.json`);
+  const blogPath = path.join(process.cwd(), 'data/content/blogs', `${slug}.json`);
   
   if (!fs.existsSync(blogPath)) {
     return {
@@ -36,7 +36,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
 export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const blogPath = path.join(process.cwd(), 'data/blogs', `${slug}.json`);
+  const blogPath = path.join(process.cwd(), 'data/content/blogs', `${slug}.json`);
   
   if (!fs.existsSync(blogPath)) {
     notFound();

@@ -1,6 +1,35 @@
 {
   "projects": [
     {
+      "id": "0",
+      "title": "Dashboard Portfolio",
+      "description": "Modern, dashboard-style portfolio template built with Next.js 15, TypeScript, and shadcn/ui for showcasing projects and experience.",
+      "longDescription": "A fully customizable portfolio template featuring a clean dashboard-style interface with JSON-driven content management. Built with modern web technologies including Next.js 15, TypeScript, Tailwind CSS, and shadcn/ui components. Features include dark/light mode, responsive design, blog support with markdown rendering, and a development-only blog maker tool. All content is managed through organized JSON files, making it easy to customize without touching code. Includes comprehensive documentation, reusable components, and follows best practices for type safety and code organization.",
+      "image": "https://github.com/user-attachments/assets/af227064-f5a7-4600-a042-86703816f160",
+      "tags": [
+        "Next.js",
+        "TypeScript",
+        "React",
+        "Tailwind CSS",
+        "shadcn/ui",
+        "Portfolio"
+      ],
+      "category": "Web Development",
+      "status": "in-progress",
+      "year": 2025,
+      "client": "Open Source",
+      "duration": "Ongoing",
+      "role": "Creator & Maintainer",
+      "links": {
+        "github": "https://github.com/AdiKsOnDev/portfolio"
+      },
+      "metrics": {
+        "users": "Template",
+        "performance": "Static export",
+        "impact": "Reusable portfolio solution"
+      }
+    },
+    {
       "id": "1",
       "title": "StarComp",
       "description": "Modern tiling Wayland compositor built in Rust using the Smithay library for high-performance window management.",
@@ -47,7 +76,7 @@
       "year": 2025,
       "client": "Open Source",
       "duration": "2 weeks",
-      "role": "Solo Engineer",
+      "role": "Creator & Maintainer",
       "links": {
         "github": "https://github.com/AdiKsOnDev/linear-cli"
       },
@@ -154,7 +183,7 @@
       "year": 2024,
       "client": "Open Source",
       "duration": "1 Week",
-      "role": "Solo Engineer",
+      "role": "Creator & Maintainer",
       "links": {
         "github": "https://github.com/AdiKsOnDev/HyprValley"
       },
@@ -182,7 +211,7 @@
       "year": 2023,
       "client": "Open Source",
       "duration": "2 months",
-      "role": "Solo Engineer",
+      "role": "Creator & Maintainer",
       "links": {
         "github": "https://github.com/AdiKsOnDev/YouTranslate"
       },
@@ -197,7 +226,7 @@
       "title": "Gruvtopia",
       "description": "Hyprland rice with beautiful Gruvbox theme aesthetic for Arch Linux enthusiasts.",
       "longDescription": "A polished Hyprland configuration featuring the beloved Gruvbox color scheme. Includes custom shell scripts, CSS styling, and carefully curated system integrations that create a cohesive and visually appealing desktop environment. Designed for developers who appreciate the warm, retro aesthetic of Gruvbox while maintaining modern functionality.",
-      "image": "https://i.redd.it/3840x2160-gruvbox-stripes-all-wallpapers-light-dark-all-v0-vjavx257pl991.png?width=3840&format=png&auto=webp&s=c46de7a668a5d0bc12b90ff0e9867d0b942816fe",
+      "image": "/dashboard/assets/gruvtopia.png",
       "tags": [
         "Shell",
         "CSS",
@@ -210,7 +239,7 @@
       "year": 2025,
       "client": "Open Source",
       "duration": "6 Hours",
-      "role": "Solo Engineer",
+      "role": "Creator & Maintainer",
       "links": {
         "github": "https://github.com/AdiKsOnDev/Gruvtopia"
       },

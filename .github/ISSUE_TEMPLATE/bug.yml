@@ -1,0 +1,82 @@
+name: Bug Report
+description: Report a bug or issue with the portfolio template
+title: "[BUG]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to report this bug! Please fill out the form below to help us fix it.
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Bug Description
+      description: A clear and concise description of what the bug is
+      placeholder: "OMG how can you code something so bad?.."
+    validations:
+      required: true
+  
+  - type: dropdown
+    id: component
+    attributes:
+      label: Component Affected
+      description: Which part of the portfolio is affected?
+      options:
+        - Navigation (Sidebar/Mobile Nav)
+        - Blog System
+        - Projects Page
+        - Experience Page
+        - Contact Page
+        - Theme Toggle (Dark/Light Mode)
+        - Data Management (JSON)
+        - Build/Deployment
+        - Other
+    validations:
+      required: true
+  
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to Reproduce
+      description: How can we reproduce this issue?
+      placeholder: |
+        1. Go to...
+        2. Click on...
+        3. See error...
+    validations:
+      required: true
+  
+  - type: textarea
+    id: logs
+    attributes:
+      label: Error Logs
+      description: Paste any relevant error messages or console logs
+      render: shell
+  
+  - type: dropdown
+    id: browser
+    attributes:
+      label: Browser (if applicable)
+      description: Which browser are you using?
+      options:
+        - Chrome
+        - Firefox
+        - Safari
+        - Edge
+        - Other
+        - Not applicable
+  
+  - type: input
+    id: version
+    attributes:
+      label: Version/Commit
+      description: What version or commit are you on?
+      placeholder: "e.g., v1.0.0 or commit abc123"
+  
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional Context
+      description: Add screenshots, configuration files, or other relevant information
+      placeholder: "Any additional information..."

@@ -5,7 +5,7 @@ import { Sidebar } from "@/components/sidebar";
 import { MobileNav } from "@/components/mobile-nav";
 import { ThemeProvider } from "@/components/theme-provider";
 import { ThemeToggle } from "@/components/theme-toggle";
-import profileData from "@/data/profile.json";
+import profileData from "@/data/config/profile.json";
 
 const inter = Inter({ subsets: ["latin"] });
 

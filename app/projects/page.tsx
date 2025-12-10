@@ -6,7 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { ProjectModal } from "@/components/project-modal";
 import { Project } from "@/types";
-import projectsData from "@/data/projects.json";
+import projectsData from "@/data/content/projects.json";
 
 export default function ProjectsPage() {
   const [selectedCategory, setSelectedCategory] = useState("all");

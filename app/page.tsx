@@ -9,9 +9,9 @@ import { Mail, MapPin, Phone, Calendar, Star, GitCommit, Flame } from "lucide-re
 import { ProjectModal } from "@/components/project-modal";
 import { LoadingDots } from "@/components/loading-dots";
 import { Project } from "@/types";
-import profileData from "@/data/profile.json";
-import projectsData from "@/data/projects.json";
-import experienceData from "@/data/experience.json";
+import profileData from "@/data/config/profile.json";
+import projectsData from "@/data/content/projects.json";
+import experienceData from "@/data/content/experience.json";
 
 interface GitHubStats {
   totalStars: number;
@@ -34,6 +34,10 @@ export default function Home() {
     try {
       const username = profileData.social.github.split('/').pop();
       
+      if (!username) {
+        throw new Error('Invalid GitHub URL in profile data');
+      }
+      
       // Fetch user's repositories directly from GitHub API
       const reposResponse = await fetch(
         `https://api.github.com/users/${username}/repos?per_page=100&sort=updated`,
@@ -47,8 +51,18 @@ export default function Home() {
       let totalStars = 0;
       if (reposResponse.ok) {
         const repos = await reposResponse.json();
-        totalStars = repos.reduce((sum: number, repo: { stargazers_count?: number }) => 
-          sum + (repo.stargazers_count || 0), 0);
+        
+        // Type-safe repository interface
+        interface GitHubRepo {
+          stargazers_count?: number;
+        }
+        
+        if (Array.isArray(repos)) {
+          totalStars = repos.reduce((sum: number, repo: GitHubRepo) => 
+            sum + (repo.stargazers_count || 0), 0);
+        }
+      } else {
+        console.warn(`GitHub API returned status ${reposResponse.status}`);
       }
 
       // Fetch contributions using github-contributions-api
@@ -62,26 +76,36 @@ export default function Home() {
         );
         if (contributionsResponse.ok) {
           const contributionsData = await contributionsResponse.json();
-          commitsLastYear = contributionsData.totalContributions || 0;
+          
+          // Type-safe contributions interface
+          interface ContributionsData {
+            totalContributions?: number;
+          }
+          
+          const data = contributionsData as ContributionsData;
+          commitsLastYear = data.totalContributions || 0;
+        } else {
+          console.warn(`Contributions API returned status ${contributionsResponse.status}`);
         }
       } catch (contributionsError) {
         console.error('Error fetching contributions:', contributionsError);
+        // Continue with totalStars even if contributions fail
       }
       
       setGithubStats({
         totalStars,
         commitsLastYear,
       });
-      setLoading(false);
     } catch (error) {
       console.error('Error fetching GitHub stats:', error);
       setGithubStats({ totalStars: 0, commitsLastYear: 0 });
+    } finally {
       setLoading(false);
     }
   };
 
-  const handleProjectClick = (project: any) => {
-    setSelectedProject(project as Project);
+  const handleProjectClick = (project: Project) => {
+    setSelectedProject(project);
     setModalOpen(true);
   };
 

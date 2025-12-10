@@ -10,6 +10,7 @@ import { Separator } from "@/components/ui/separator";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { MarkdownContent } from "@/components/markdown-content";
 import { Download, Eye, FileText, X, Save } from "lucide-react";
+import { generateSlug, estimateReadTime, generateBlogId, downloadJSON, copyToClipboard } from "@/lib/blog-utils";
 
 export default function BlogMaker() {
   // Redirect if not in development
@@ -40,13 +41,6 @@ export default function BlogMaker() {
   const [isSaving, setIsSaving] = useState(false);
   const [saveMessage, setSaveMessage] = useState("");
 
-  const generateSlug = (text: string) => {
-    return text
-      .toLowerCase()
-      .replace(/[^a-z0-9]+/g, '-')
-      .replace(/(^-|-$)/g, '');
-  };
-
   const handleTitleChange = (value: string) => {
     setTitle(value);
     if (!slug) {
@@ -65,23 +59,14 @@ export default function BlogMaker() {
     setTags(tags.filter(tag => tag !== tagToRemove));
   };
 
-  const estimateReadTime = (text: string) => {
-    const wordsPerMinute = 200;
-    const words = text.trim().split(/\s+/).length;
-    const minutes = Math.ceil(words / wordsPerMinute);
-    return `${minutes} min read`;
-  };
-
   const handleContentChange = (value: string) => {
     setContent(value);
     setReadTime(estimateReadTime(value));
   };
 
-  const generateJSON = () => {
-    const nextId = Date.now().toString(); // Simple ID generation
-    
-    const blogPost = {
-      id: nextId,
+  const generateBlogPost = () => {
+    return {
+      id: generateBlogId(),
       title,
       slug: slug || generateSlug(title),
       excerpt,
@@ -94,26 +79,17 @@ export default function BlogMaker() {
       featured,
       content
     };
-
-    return JSON.stringify(blogPost, null, 2);
   };
 
-  const downloadJSON = () => {
-    const json = generateJSON();
-    const blob = new Blob([json], { type: 'application/json' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = `${slug || 'blog-post'}.json`;
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
+  const handleDownloadJSON = () => {
+    const blogPost = generateBlogPost();
+    downloadJSON(blogPost, slug || 'blog-post');
   };
 
-  const copyJSON = () => {
-    const json = generateJSON();
-    navigator.clipboard.writeText(json);
+  const handleCopyJSON = async () => {
+    const blogPost = generateBlogPost();
+    const json = JSON.stringify(blogPost, null, 2);
+    await copyToClipboard(json);
     alert('JSON copied to clipboard!');
   };
 
@@ -136,7 +112,7 @@ export default function BlogMaker() {
     setSaveMessage("");
 
     try {
-      const blogPost = JSON.parse(generateJSON());
+      const blogPost = generateBlogPost();
       
       const response = await fetch('/api/save-blog', {
         method: 'POST',
@@ -311,11 +287,11 @@ export default function BlogMaker() {
             )}
 
             <div className="flex gap-2">
-              <Button onClick={downloadJSON} variant="outline" className="flex-1">
+              <Button onClick={handleDownloadJSON} variant="outline" className="flex-1">
                 <Download className="h-4 w-4 mr-2" />
                 Download JSON
               </Button>
-              <Button onClick={copyJSON} variant="outline" className="flex-1">
+              <Button onClick={handleCopyJSON} variant="outline" className="flex-1">
                 <FileText className="h-4 w-4 mr-2" />
                 Copy JSON
               </Button>
@@ -381,7 +357,7 @@ export default function BlogMaker() {
 
                 <TabsContent value="json">
                   <pre className="bg-muted p-4 rounded-lg overflow-auto max-h-[600px] text-xs">
-                    {generateJSON()}
+                    {JSON.stringify(generateBlogPost(), null, 2)}
                   </pre>
                 </TabsContent>
               </Tabs>

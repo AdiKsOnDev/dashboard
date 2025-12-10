@@ -178,6 +178,7 @@ export interface Contact {
 
 /**
  * Blog post with content and metadata
+ * Content is optional for preview/listing contexts
  */
 export interface BlogPost {
   /** Unique identifier for the post */
@@ -188,8 +189,8 @@ export interface BlogPost {
   slug: string;
   /** Short excerpt or summary */
   excerpt: string;
-  /** Full post content in Markdown */
-  content: string;
+  /** Full post content in Markdown (optional for previews) */
+  content?: string;
   /** URL to cover image */
   coverImage: string;
   /** Publication date in ISO format */

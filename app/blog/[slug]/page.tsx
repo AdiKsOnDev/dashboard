@@ -44,6 +44,10 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
   
   const post: BlogPost = JSON.parse(fs.readFileSync(blogPath, 'utf-8'));
   
+  if (!post.content) {
+    notFound();
+  }
+  
   return (
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
@@ -104,7 +108,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
       
       {/* Article Content */}
       <article className="container max-w-4xl py-12 px-6">
-        <MarkdownContent content={post.content} />
+        <MarkdownContent content={post.content!} />
       </article>
       
       {/* Footer Actions */}

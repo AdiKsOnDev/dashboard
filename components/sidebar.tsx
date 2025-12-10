@@ -6,41 +6,14 @@ import { cn } from "@/lib/utils";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
-import {
-  Home,
-  Briefcase,
-  FolderGit2,
-  BookOpen,
-  Mail,
-  Github,
-  Linkedin,
-  PenTool,
-} from "lucide-react";
-import { KaggleIcon } from "@/components/icons/kaggle-icon";
+import { getNavigation, socialIcons, getSupportedSocialPlatforms } from "@/lib/navigation";
 import { Profile } from "@/types";
 
 interface SidebarProps {
   profile: Profile;
 }
 
-const baseNavigation = [
-  { name: "Overview", href: "/", icon: Home },
-  { name: "Projects", href: "/projects", icon: FolderGit2 },
-  { name: "Experience", href: "/experience", icon: Briefcase },
-  { name: "Blog", href: "/blog", icon: BookOpen },
-  { name: "Contact", href: "/contact", icon: Mail },
-];
-
-// Add blog maker in development only
-const navigation = process.env.NODE_ENV === 'development'
-  ? [...baseNavigation, { name: "Blog Maker", href: "/blog-maker", icon: PenTool }]
-  : baseNavigation;
-
-const socialIcons = {
-  github: Github,
-  linkedin: Linkedin,
-  kaggle: KaggleIcon,
-};
+const navigation = getNavigation();
 
 export function Sidebar({ profile }: SidebarProps) {
   const pathname = usePathname();
@@ -88,25 +61,23 @@ export function Sidebar({ profile }: SidebarProps) {
 
       <div className="border-t p-6">
         <div className="flex justify-center gap-2">
-          {Object.entries(profile.social)
-            .filter(([key]) => key === 'github' || key === 'linkedin' || key === 'kaggle')
-            .map(([key, url]) => {
-              const Icon = socialIcons[key as keyof typeof socialIcons];
-              return (
-                <Button
-                  key={key}
-                  variant="ghost"
-                  size="icon"
-                  className="h-9 w-9"
-                  asChild
-                >
-                  <a href={url} target="_blank" rel="noopener noreferrer">
-                    <Icon className="h-4 w-4 text-primary" />
-                    <span className="sr-only">{key}</span>
-                  </a>
-                </Button>
-              );
-            })}
+          {getSupportedSocialPlatforms(profile.social).map(([platform, url]) => {
+            const Icon = socialIcons[platform];
+            return (
+              <Button
+                key={platform}
+                variant="ghost"
+                size="icon"
+                className="h-9 w-9"
+                asChild
+              >
+                <a href={url} target="_blank" rel="noopener noreferrer">
+                  <Icon className="h-4 w-4 text-primary" />
+                  <span className="sr-only">{platform}</span>
+                </a>
+              </Button>
+            );
+          })}
         </div>
       </div>
     </div>

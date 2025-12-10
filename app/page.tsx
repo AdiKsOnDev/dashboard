@@ -1,8 +1,13 @@
+"use client";
+
+import { useState } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Mail, MapPin, Phone, Calendar, TrendingUp, Users, Coffee } from "lucide-react";
+import { ProjectModal } from "@/components/project-modal";
+import { Project } from "@/types";
 import profileData from "@/data/profile.json";
 import projectsData from "@/data/projects.json";
 import experienceData from "@/data/experience.json";
@@ -10,6 +15,13 @@ import experienceData from "@/data/experience.json";
 export default function Home() {
   const recentProjects = projectsData.projects.slice(0, 3);
   const currentJob = experienceData.experience.find(exp => exp.current);
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [modalOpen, setModalOpen] = useState(false);
+
+  const handleProjectClick = (project: any) => {
+    setSelectedProject(project as Project);
+    setModalOpen(true);
+  };
 
   return (
     <div className="container max-w-7xl py-8 px-6">
@@ -140,7 +152,11 @@ export default function Home() {
         <CardContent>
           <div className="grid gap-6 md:grid-cols-3">
             {recentProjects.map((project) => (
-              <div key={project.id} className="group cursor-pointer">
+              <div 
+                key={project.id} 
+                className="group cursor-pointer"
+                onClick={() => handleProjectClick(project)}
+              >
                 <div className="aspect-video overflow-hidden rounded-lg bg-muted mb-3">
                   <img
                     src={project.image}
@@ -160,6 +176,12 @@ export default function Home() {
           </div>
         </CardContent>
       </Card>
+
+      <ProjectModal 
+        project={selectedProject}
+        open={modalOpen}
+        onOpenChange={setModalOpen}
+      />
     </div>
   );
 }

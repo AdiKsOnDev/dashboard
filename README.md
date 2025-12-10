@@ -5,7 +5,7 @@ A modern, dashboard-style portfolio built with Next.js, TypeScript, and shadcn/u
 >This can be easily customized, check the data/ folder and you'll understand what to change fairly easily. I tried my best to keep
 >the project modular for code modifications to be seamless as well, so feel free to have your fun with this. Just give me a star please ;)
 
-<img width="2438" height="1637" alt="image" src="https://github.com/user-attachments/assets/ded650dc-81ed-4925-96fa-5dd3b3d89589" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/af227064-f5a7-4600-a042-86703816f160" />
 
 ## Features
 

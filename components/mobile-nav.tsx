@@ -22,16 +22,17 @@ import {
   Mail,
   Github,
   Linkedin,
+  PenTool,
 } from "lucide-react";
+import { KaggleIcon } from "@/components/icons/kaggle-icon";
 import { Profile } from "@/types";
 import { useState } from "react";
-import { ThemeToggle } from "@/components/theme-toggle";
 
 interface MobileNavProps {
   profile: Profile;
 }
 
-const navigation = [
+const baseNavigation = [
   { name: "Overview", href: "/", icon: Home },
   { name: "Projects", href: "/projects", icon: FolderGit2 },
   { name: "Experience", href: "/experience", icon: Briefcase },
@@ -39,9 +40,15 @@ const navigation = [
   { name: "Contact", href: "/contact", icon: Mail },
 ];
 
+// Add blog maker in development only
+const navigation = process.env.NODE_ENV === 'development'
+  ? [...baseNavigation, { name: "Blog Maker", href: "/blog-maker", icon: PenTool }]
+  : baseNavigation;
+
 const socialIcons = {
   github: Github,
   linkedin: Linkedin,
+  kaggle: KaggleIcon,
 };
 
 export function MobileNav({ profile }: MobileNavProps) {
@@ -98,7 +105,7 @@ export function MobileNav({ profile }: MobileNavProps) {
 
           <div className="flex justify-center gap-2">
             {Object.entries(profile.social)
-              .filter(([key]) => key === 'github' || key === 'linkedin')
+              .filter(([key]) => key === 'github' || key === 'linkedin' || key === 'kaggle')
               .map(([key, url]) => {
                 const Icon = socialIcons[key as keyof typeof socialIcons];
                 return (
@@ -116,7 +123,6 @@ export function MobileNav({ profile }: MobileNavProps) {
                   </Button>
                 );
               })}
-            <ThemeToggle />
           </div>
         </div>
       </SheetContent>

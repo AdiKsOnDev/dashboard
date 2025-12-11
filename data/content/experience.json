@@ -11,6 +11,7 @@
       "current": true,
       "description": "Processing Qualitative Data, such as call recordings to provide detailed analytics to consulting companies",
       "responsibilities": [
+        "Developed automation solution that eliminated client dependency on third-party consultants, resulting in 100% revenue increase from the account",
         "Moderated version control via GitHub repositories and performed extensive Pull Request (PR) reviews",
         "Architected and developed scalable database infrastructure handling 1M+ records for enterprise ontology management",
         "Built high-performance REST API with Flask achieving sub-100ms response times for standard queries",
@@ -40,8 +41,7 @@
         "Designed and implemented the initial database layer for the ontology management system",
         "Developed data models and relationships for complex hierarchical enterprise data structures",
         "Collaborated with the founding team to establish technical architecture and best practices",
-        "Built proof-of-concept features for client onboarding and data integration workflows",
-        "Developed automation solution that eliminated client dependency on third-party consultants, resulting in 100% revenue increase from the account"
+        "Built proof-of-concept features for client onboarding and data integration workflows"
       ],
       "technologies": ["Python", "PostgreSQL", "SQLAlchemy", "Database Design", "Flask", "CI/CD"],
       "achievements": [

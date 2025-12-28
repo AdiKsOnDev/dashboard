@@ -11,7 +11,6 @@
       "current": true,
       "description": "Processing Qualitative Data, such as call recordings to provide detailed analytics to consulting companies",
       "responsibilities": [
-        "Developed automation solution that eliminated client dependency on third-party consultants, resulting in 100% revenue increase from the account",
         "Moderated version control via GitHub repositories and performed extensive Pull Request (PR) reviews",
         "Architected and developed scalable database infrastructure handling 1M+ records for enterprise ontology management",
         "Built high-performance REST API with Flask achieving sub-100ms response times for standard queries",
@@ -22,7 +21,8 @@
       ],
       "technologies": ["Python", "TypeScript", "Next.JS", "Flask", "PostgreSQL", "SQLAlchemy", "Docker", "CI/CD", "AWS"],
       "achievements": [
-        "Successfully delivered complete Ontology Excellence System (OES) with database, API, and UI components",
+        "Proposed and developed a product that eliminated client dependency on third-party consultants, resulting in 100% revenue increase from the account",
+        "Successfully delivered complete Ontology System with database, API, and UI components",
         "Enabled seamless client integration with zero downtime through robust data model design",
         "Achieved real-time data access and updates across the entire platform"
       ]

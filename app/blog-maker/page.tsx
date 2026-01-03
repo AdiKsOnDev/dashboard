@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -9,8 +9,8 @@ import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { MarkdownContent } from "@/components/markdown-content";
-import { Download, Eye, FileText, X, Save } from "lucide-react";
-import { generateSlug, estimateReadTime, generateBlogId, downloadJSON, copyToClipboard } from "@/lib/blog-utils";
+import { Download, Eye, FileText, X, Save, Edit, Plus } from "lucide-react";
+import { generateSlug, estimateReadTime, generateBlogId, downloadJSON, copyToClipboard, fetchBlogPosts, fetchBlogPost } from "@/lib/blog-utils";
 
 export default function BlogMaker() {
   // Redirect if not in development
@@ -27,6 +27,12 @@ export default function BlogMaker() {
     );
   }
 
+  const [blogPosts, setBlogPosts] = useState<any[]>([]);
+  const [selectedBlogId, setSelectedBlogId] = useState<string>("");
+  const [isEditMode, setIsEditMode] = useState(false);
+  const [isLoadingBlogs, setIsLoadingBlogs] = useState(true);
+  
+  const [blogId, setBlogId] = useState("");
   const [title, setTitle] = useState("");
   const [slug, setSlug] = useState("");
   const [excerpt, setExcerpt] = useState("");
@@ -41,9 +47,65 @@ export default function BlogMaker() {
   const [isSaving, setIsSaving] = useState(false);
   const [saveMessage, setSaveMessage] = useState("");
 
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      loadBlogPosts();
+    }
+  }, []);
+
+  const loadBlogPosts = async () => {
+    try {
+      const posts = await fetchBlogPosts();
+      setBlogPosts(posts);
+    } catch (error) {
+      console.error('Failed to load blog posts:', error);
+      setBlogPosts([]);
+    } finally {
+      setIsLoadingBlogs(false);
+    }
+  };
+
+  const loadBlogForEdit = async (slug: string) => {
+    try {
+      const blog = await fetchBlogPost(slug);
+      setBlogId(blog.id);
+      setTitle(blog.title);
+      setSlug(blog.slug);
+      setExcerpt(blog.excerpt || "");
+      setCoverImage(blog.coverImage || "");
+      setPublishedAt(blog.publishedAt || new Date().toISOString().split('T')[0]);
+      setReadTime(blog.readTime || "");
+      setCategory(blog.category || "");
+      setTags(blog.tags || []);
+      setFeatured(blog.featured || false);
+      setContent(blog.content || "");
+      setIsEditMode(true);
+      setSaveMessage("");
+    } catch (error) {
+      setSaveMessage(`❌ Failed to load blog: ${error}`);
+    }
+  };
+
+  const resetForm = () => {
+    setBlogId("");
+    setTitle("");
+    setSlug("");
+    setExcerpt("");
+    setCoverImage("");
+    setPublishedAt(new Date().toISOString().split('T')[0]);
+    setReadTime("");
+    setCategory("");
+    setTags([]);
+    setFeatured(false);
+    setContent("# Your Blog Title\n\nStart writing your blog post here...\n\n## Section 1\n\nAdd your content with markdown formatting.\n\n```javascript\n// Code example\nconst example = 'Hello World';\n```\n\n## Conclusion\n\nWrap up your post here.");
+    setIsEditMode(false);
+    setSelectedBlogId("");
+    setSaveMessage("");
+  };
+
   const handleTitleChange = (value: string) => {
     setTitle(value);
-    if (!slug) {
+    if (!slug || !isEditMode) {
       setSlug(generateSlug(value));
     }
   };
@@ -66,7 +128,7 @@ export default function BlogMaker() {
 
   const generateBlogPost = () => {
     return {
-      id: generateBlogId(),
+      id: blogId || generateBlogId(),
       title,
       slug: slug || generateSlug(title),
       excerpt,
@@ -94,7 +156,6 @@ export default function BlogMaker() {
   };
 
   const saveBlog = async () => {
-    // Validate required fields
     if (!title.trim()) {
       setSaveMessage("❌ Title is required");
       return;
@@ -114,7 +175,7 @@ export default function BlogMaker() {
     try {
       const blogPost = generateBlogPost();
       
-      const response = await fetch('/api/save-blog', {
+      const response = await fetch('/dashboard/api/save-blog', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -125,8 +186,8 @@ export default function BlogMaker() {
       const data = await response.json();
 
       if (response.ok) {
-        setSaveMessage(`✅ Blog saved successfully! View at /blog/${data.slug}`);
-        // Optionally reset form or keep it for editing
+        setSaveMessage(`✅ Blog ${data.isUpdate ? 'updated' : 'created'} successfully! View at /dashboard/blog/${data.slug}`);
+        await loadBlogPosts();
       } else {
         setSaveMessage(`❌ Error: ${data.error}`);
       }
@@ -144,6 +205,60 @@ export default function BlogMaker() {
         <p className="text-muted-foreground mt-2">Create and preview your blog posts with markdown support</p>
         <Badge variant="destructive" className="mt-2">Development Only</Badge>
       </div>
+
+      <Card className="mb-6">
+        <CardHeader>
+          <CardTitle>Mode Selection</CardTitle>
+          <CardDescription>Choose to create a new blog or edit an existing one</CardDescription>
+        </CardHeader>
+        <CardContent className="space-y-4">
+          <div className="flex gap-2">
+            <Button 
+              onClick={resetForm} 
+              variant={!isEditMode ? "default" : "outline"}
+              className="flex-1"
+            >
+              <Plus className="h-4 w-4 mr-2" />
+              New Blog Post
+            </Button>
+            <Button 
+              onClick={() => setIsEditMode(true)} 
+              variant={isEditMode ? "default" : "outline"}
+              className="flex-1"
+              disabled={blogPosts.length === 0}
+            >
+              <Edit className="h-4 w-4 mr-2" />
+              Edit Existing
+            </Button>
+          </div>
+
+          {isEditMode && (
+            <div>
+              <label className="text-sm font-medium mb-2 block">Select Blog to Edit</label>
+              <select
+                className="w-full p-2 border rounded-md bg-background"
+                value={selectedBlogId}
+                onChange={(e) => {
+                  setSelectedBlogId(e.target.value);
+                  if (e.target.value) {
+                    const selected = blogPosts.find(p => p.id === e.target.value);
+                    if (selected) {
+                      loadBlogForEdit(selected.slug);
+                    }
+                  }
+                }}
+              >
+                <option value="">-- Select a blog post --</option>
+                {blogPosts.map((post) => (
+                  <option key={post.id} value={post.id}>
+                    {post.title} ({post.slug})
+                  </option>
+                ))}
+              </select>
+            </div>
+          )}
+        </CardContent>
+      </Card>
 
       <div className="grid gap-6 lg:grid-cols-2">
         {/* Editor Panel */}
@@ -273,7 +388,7 @@ export default function BlogMaker() {
               disabled={isSaving}
             >
               <Save className="h-4 w-4 mr-2" />
-              {isSaving ? "Saving..." : "Save Blog Post"}
+              {isSaving ? "Saving..." : isEditMode ? "Update Blog Post" : "Save Blog Post"}
             </Button>
             
             {saveMessage && (

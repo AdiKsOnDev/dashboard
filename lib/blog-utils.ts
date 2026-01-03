@@ -56,3 +56,47 @@ export function downloadJSON(data: object, filename: string): void {
 export async function copyToClipboard(text: string): Promise<void> {
   await navigator.clipboard.writeText(text);
 }
+
+/**
+ * Gets the base path for API routes
+ */
+function getBasePath(): string {
+  return '/dashboard';
+}
+
+/**
+ * Fetches all blog posts from the index
+ * @returns Promise with array of blog metadata
+ */
+export async function fetchBlogPosts(): Promise<any[]> {
+  try {
+    const basePath = getBasePath();
+    const response = await fetch(`${basePath}/api/blogs`, {
+      cache: 'no-store'
+    });
+    if (!response.ok) {
+      return [];
+    }
+    const data = await response.json();
+    return data.posts || [];
+  } catch (error) {
+    console.error('Error fetching blog posts:', error);
+    return [];
+  }
+}
+
+/**
+ * Fetches a single blog post by slug
+ * @param slug - The blog post slug
+ * @returns Promise with full blog post data
+ */
+export async function fetchBlogPost(slug: string): Promise<any> {
+  const basePath = getBasePath();
+  const response = await fetch(`${basePath}/api/blogs/${slug}`, {
+    cache: 'no-store'
+  });
+  if (!response.ok) {
+    throw new Error('Failed to fetch blog post');
+  }
+  return response.json();
+}

@@ -174,7 +174,7 @@ export default function Home() {
           </CardHeader>
           <CardContent>
             <div className="flex items-start gap-4">
-              <Avatar className="h-20 w-20 grayscale">
+              <Avatar className="h-20 w-20 opacity-70 saturate-50">
                 <AvatarImage src={profileData.avatar} alt={profileData.name} />
                 <AvatarFallback>{profileData.name.charAt(0)}</AvatarFallback>
               </Avatar>
@@ -253,7 +253,7 @@ export default function Home() {
                   <img
                     src={project.image}
                     alt={project.title}
-                    className="h-full w-full object-cover grayscale transition-all group-hover:grayscale-0 group-hover:scale-105"
+                    className="h-full w-full object-cover opacity-60 saturate-50 transition-all group-hover:opacity-100 group-hover:saturate-100 group-hover:scale-105"
                   />
                 </div>
                 <h4 className="font-semibold group-hover:text-primary transition-colors">{project.title}</h4>

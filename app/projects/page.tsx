@@ -52,7 +52,7 @@ export default function ProjectsPage() {
               <img
                 src={project.image}
                 alt={project.title}
-                className="h-full w-full object-cover grayscale transition-all hover:grayscale-0 hover:scale-105"
+                className="h-full w-full object-cover opacity-60 saturate-50 transition-all hover:opacity-100 hover:saturate-100 hover:scale-105"
               />
             </div>
             <CardHeader>

@@ -23,7 +23,7 @@ export function Sidebar({ profile }: SidebarProps) {
       <div className="flex-1 overflow-auto py-6">
         <div className="px-6 pb-6">
           <div className="flex flex-col items-center text-center">
-            <Avatar className="h-24 w-24 grayscale">
+            <Avatar className="h-24 w-24 opacity-70 saturate-50">
               <AvatarImage src={profile.avatar} alt={profile.name} />
               <AvatarFallback>{profile.name.charAt(0)}</AvatarFallback>
             </Avatar>

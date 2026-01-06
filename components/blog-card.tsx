@@ -32,7 +32,7 @@ export function BlogCard({ post, variant = "default", showTags }: BlogCardProps)
           <img
             src={post.coverImage}
             alt={post.title}
-            className="h-full w-full object-cover grayscale transition-all group-hover:grayscale-0 group-hover:scale-105"
+            className="h-full w-full object-cover opacity-60 saturate-50 transition-all group-hover:opacity-100 group-hover:saturate-100 group-hover:scale-105"
           />
         </div>
         <CardHeader>

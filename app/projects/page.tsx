@@ -45,7 +45,7 @@ export default function ProjectsPage() {
         {filteredProjects.map((project) => (
           <Card 
             key={project.id} 
-            className="overflow-hidden cursor-pointer transition-shadow hover:shadow-lg"
+            className="overflow-hidden cursor-pointer transition-shadow hover:shadow-lg pt-0"
             onClick={() => handleProjectClick(project as Project)}
           >
             <div className="aspect-video overflow-hidden bg-muted">

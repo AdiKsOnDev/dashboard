@@ -27,7 +27,7 @@ export function BlogCard({ post, variant = "default", showTags }: BlogCardProps)
 
   return (
     <Link href={`/blog/${post.slug}`}>
-      <Card className="overflow-hidden group cursor-pointer hover:shadow-lg transition-shadow h-full">
+      <Card className="overflow-hidden group cursor-pointer hover:shadow-lg transition-shadow h-full pt-0">
         <div className="aspect-video overflow-hidden bg-muted">
           <img
             src={post.coverImage}

@@ -64,7 +64,7 @@
   --muted: oklch(0.90 0.015 80);
   --muted-foreground: oklch(0.50 0.015 265);
   /* Desaturated cyan-teal accent - calm hover state */
-  --accent: oklch(0.8429 0.0246 173.71);
+  --accent: oklch(0.8443 0.0449 172.94);
   --accent-foreground: oklch(0.30 0.01 265);
   /* Muted terracotta destructive - restrained warning */
   --destructive: oklch(0.50 0.08 35);

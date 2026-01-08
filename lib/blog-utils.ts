@@ -61,7 +61,7 @@ export async function copyToClipboard(text: string): Promise<void> {
  * Gets the base path for API routes
  */
 function getBasePath(): string {
-  return '/dashboard';
+  return '/';
 }
 
 /**

@@ -4,9 +4,10 @@ import path from 'path';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
-import { Calendar, Clock, ArrowLeft, Share2 } from 'lucide-react';
+import { Calendar, Clock, ArrowLeft } from 'lucide-react';
 import { BlogPost } from '@/types';
 import { MarkdownContent } from '@/components/markdown-content';
+import { ShareButton } from '@/components/share-button';
 import Link from 'next/link';
 import blogIndex from '@/data/content/blogs/index.json';
 
@@ -122,10 +123,10 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
               </Button>
             </Link>
             
-            <Button variant="outline" size="sm">
-              <Share2 className="h-4 w-4 mr-2" />
-              Share
-            </Button>
+            <ShareButton 
+              title={post.title}
+              url={`https://adilalizada.com/blog/${post.slug}`}
+            />
           </div>
         </div>
       </div>

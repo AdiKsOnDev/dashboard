@@ -175,7 +175,7 @@ export default function BlogMaker() {
     try {
       const blogPost = generateBlogPost();
       
-      const response = await fetch('/dashboard/api/save-blog', {
+      const response = await fetch('/api/save-blog', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -186,7 +186,7 @@ export default function BlogMaker() {
       const data = await response.json();
 
       if (response.ok) {
-        setSaveMessage(`✅ Blog ${data.isUpdate ? 'updated' : 'created'} successfully! View at /dashboard/blog/${data.slug}`);
+        setSaveMessage(`✅ Blog ${data.isUpdate ? 'updated' : 'created'} successfully! View at /blog/${data.slug}`);
         await loadBlogPosts();
       } else {
         setSaveMessage(`❌ Error: ${data.error}`);

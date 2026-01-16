@@ -5,7 +5,7 @@
       "title": "Dashboard Portfolio",
       "description": "Modern, dashboard-style portfolio template built with Next.js 15, TypeScript, and shadcn/ui for showcasing projects and experience.",
       "longDescription": "A fully customizable portfolio template featuring a clean dashboard-style interface with JSON-driven content management. Built with modern web technologies including Next.js 15, TypeScript, Tailwind CSS, and shadcn/ui components. Features include dark/light mode, responsive design, blog support with markdown rendering, and a development-only blog maker tool. All content is managed through organized JSON files, making it easy to customize without touching code. Includes comprehensive documentation, reusable components, and follows best practices for type safety and code organization.",
-      "image": "https://github.com/user-attachments/assets/af227064-f5a7-4600-a042-86703816f160",
+      "image": "https://github.com/user-attachments/assets/071faa75-e057-4148-bd1b-7e9aff01a5e9",
       "tags": [
         "Next.js",
         "TypeScript",

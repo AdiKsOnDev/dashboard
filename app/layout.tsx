@@ -82,6 +82,11 @@ const tiempos = localFont({
 export const metadata: Metadata = {
   title: "Adil Alizada",
   description: "Full Stack Developer Portfolio",
+  alternates: {
+    types: {
+      'application/rss+xml': 'https://adilalizada.com/feed.xml',
+    },
+  },
 };
 
 export default function RootLayout({

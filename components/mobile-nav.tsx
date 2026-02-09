@@ -13,7 +13,7 @@ import {
 } from "@/components/ui/sheet";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Separator } from "@/components/ui/separator";
-import { Menu } from "lucide-react";
+import { Menu, Rss } from "lucide-react";
 import { getNavigation, socialIcons, getSupportedSocialPlatforms } from "@/lib/navigation";
 import { Profile } from "@/types";
 import { useState } from "react";
@@ -94,6 +94,17 @@ export function MobileNav({ profile }: MobileNavProps) {
                 </Button>
               );
             })}
+            <Button
+              variant="ghost"
+              size="icon"
+              className="h-9 w-9"
+              asChild
+            >
+              <a href="/feed.xml" target="_blank" rel="noopener noreferrer">
+                <Rss className="h-4 w-4 text-primary" />
+                <span className="sr-only">RSS Feed</span>
+              </a>
+            </Button>
           </div>
         </div>
       </SheetContent>

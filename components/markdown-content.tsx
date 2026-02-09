@@ -18,22 +18,22 @@ export function MarkdownContent({ content }: MarkdownContentProps) {
         rehypePlugins={[rehypeHighlight, rehypeRaw]}
         components={{
           h1: ({ children }) => (
-            <h1 className="text-4xl font-bold tracking-tight mt-8 mb-4 scroll-mt-20">
+            <h1 className="text-4xl font-bold tracking-tight font-sans mt-8 mb-4 scroll-mt-20">
               {children}
             </h1>
           ),
           h2: ({ children }) => (
-            <h2 className="text-3xl font-bold tracking-tight mt-8 mb-4 scroll-mt-20 border-b pb-2">
+            <h2 className="text-3xl font-bold tracking-tight font-sans mt-8 mb-4 scroll-mt-20 border-b pb-2">
               {children}
             </h2>
           ),
           h3: ({ children }) => (
-            <h3 className="text-2xl font-semibold tracking-tight mt-6 mb-3 scroll-mt-20">
+            <h3 className="text-2xl font-semibold tracking-tight font-sans mt-6 mb-3 scroll-mt-20">
               {children}
             </h3>
           ),
           h4: ({ children }) => (
-            <h4 className="text-xl font-semibold tracking-tight mt-4 mb-2 scroll-mt-20">
+            <h4 className="text-xl font-semibold tracking-tight font-sans mt-4 mb-2 scroll-mt-20">
               {children}
             </h4>
           ),
@@ -110,7 +110,7 @@ export function MarkdownContent({ content }: MarkdownContentProps) {
             </thead>
           ),
           th: ({ children }) => (
-            <th className="border border-border px-4 py-2 text-left font-semibold">
+            <th className="border border-border px-4 py-2 text-left font-semibold font-sans">
               {children}
             </th>
           ),
@@ -130,7 +130,7 @@ export function MarkdownContent({ content }: MarkdownContentProps) {
             />
           ),
           strong: ({ children }) => (
-            <strong className="font-semibold text-foreground">
+            <strong className="font-semibold font-sans text-foreground">
               {children}
             </strong>
           ),

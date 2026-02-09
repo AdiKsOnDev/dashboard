@@ -29,7 +29,7 @@ export default function ExperiencePage() {
   return (
     <div className="container max-w-5xl py-8 px-6">
       <div className="mb-8">
-        <h1 className="text-4xl font-bold tracking-tight">Experience</h1>
+        <h1 className="text-4xl font-bold tracking-tight font-sans">Experience</h1>
         <p className="text-muted-foreground mt-2">My professional journey and career highlights</p>
       </div>
 
@@ -77,7 +77,7 @@ export default function ExperiencePage() {
                   <p className="text-sm leading-relaxed">{exp.description}</p>
 
                   <div>
-                    <h4 className="text-sm font-semibold mb-3">Key Responsibilities</h4>
+                    <h4 className="text-sm font-semibold font-sans mb-3">Key Responsibilities</h4>
                     <ul className="space-y-2">
                       {exp.responsibilities.map((responsibility, idx) => (
                         <li key={idx} className="flex items-start gap-2 text-sm">
@@ -90,7 +90,7 @@ export default function ExperiencePage() {
 
                   {exp.achievements.length > 0 && (
                     <div>
-                      <h4 className="text-sm font-semibold mb-3">Achievements</h4>
+                      <h4 className="text-sm font-semibold font-sans mb-3">Achievements</h4>
                       <ul className="space-y-2">
                         {exp.achievements.map((achievement, idx) => (
                           <li key={idx} className="flex items-start gap-2 text-sm">
@@ -107,7 +107,7 @@ export default function ExperiencePage() {
                       <Separator />
 
                       <div>
-                        <h4 className="text-sm font-semibold mb-3">Technologies Used</h4>
+                        <h4 className="text-sm font-semibold font-sans mb-3">Technologies Used</h4>
                         <div className="flex flex-wrap gap-2">
                           {exp.technologies.map((tech) => (
                             <Badge key={tech} variant="secondary">

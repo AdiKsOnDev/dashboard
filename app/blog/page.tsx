@@ -19,7 +19,7 @@ export default function BlogPage() {
   return (
     <div className="container max-w-7xl py-8 px-6">
       <div className="mb-8">
-        <h1 className="text-4xl font-bold tracking-tight">My Public Rants</h1>
+        <h1 className="text-4xl font-bold tracking-tight font-sans">My Public Rants</h1>
         <p className="text-muted-foreground mt-2">Have fun reading these. Some are insightful, some are delusional, all are honest</p>
       </div>
 
@@ -27,7 +27,7 @@ export default function BlogPage() {
         <div className="mb-8">
           <div className="flex items-center gap-2 mb-4">
             <Star className="h-5 w-5 text-primary fill-primary" />
-            <h2 className="text-2xl font-semibold">Pinned Posts</h2>
+            <h2 className="text-2xl font-semibold font-sans">Pinned Posts</h2>
           </div>
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {pinnedPosts.map((post) => (
@@ -38,7 +38,7 @@ export default function BlogPage() {
       )}
 
       <div className="mb-6">
-        <h2 className="text-2xl font-semibold mb-4">All Posts</h2>
+        <h2 className="text-2xl font-semibold font-sans mb-4">All Posts</h2>
         <Tabs value={selectedCategory} onValueChange={setSelectedCategory}>
           <TabsList>
             {categories.map((category) => (

@@ -47,7 +47,7 @@ export function MobileNav({ profile }: MobileNavProps) {
               <AvatarImage src={profile.avatar} alt={profile.name} />
               <AvatarFallback>{profile.name.charAt(0)}</AvatarFallback>
             </Avatar>
-            <h2 className="mt-4 text-lg font-semibold">{profile.name}</h2>
+            <h2 className="mt-4 text-lg font-semibold font-sans">{profile.name}</h2>
             <p className="text-sm text-muted-foreground">{profile.title}</p>
           </div>
 

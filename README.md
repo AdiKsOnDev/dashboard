@@ -53,3 +53,20 @@ portfolio/
 │   └── blog-utils.ts     # Blog-specific utilities
 └── types/                # TypeScript type definitions
 ```
+
+## RSS Feed Configuration
+
+The template includes a simple RSS feed implementation for the blog at `/feed.xml`. To configure it for your domain:
+
+1. Open `app/feed.xml/route.ts`
+2. Update the `siteUrl` constant with your domain:
+   ```ts
+   const siteUrl = 'https://yourdomain.com';
+   ```
+3. The feed will automatically include:
+   - Post titles, excerpts, and links
+   - Cover images (thumbnails)
+   - Publication dates and categories
+   - Author information
+
+Users can subscribe to the blog using RSS readers like Feedly, Inoreader, or browser extensions by visiting `https://yourdomain.com/feed.xml`.

@@ -12,9 +12,14 @@ export async function GET() {
   <channel>
     <title>${profileData.name}'s Blog</title>
     <link>${siteUrl}/blog</link>
-    <description>${profileData.bio}</description>
+    <description>A humble blog of a not-so-humble Engineer</description>
     <language>en</language>
     <atom:link href="${feedUrl}" rel="self" type="application/rss+xml"/>
+    <image>
+      <url>${siteUrl}/favicon.ico</url>
+      <title>${profileData.name}'s Blog</title>
+      <link>${siteUrl}/blog</link>
+    </image>
     ${blogIndex.posts
       .map(
         (post) => `

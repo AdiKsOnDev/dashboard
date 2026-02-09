@@ -15,7 +15,7 @@ export default function ContactPage() {
   return (
     <div className="container max-w-5xl py-8 px-6">
       <div className="mb-8">
-        <h1 className="text-4xl font-bold tracking-tight">Get In Touch</h1>
+        <h1 className="text-4xl font-bold tracking-tight font-sans">Get In Touch</h1>
         <p className="text-muted-foreground mt-2">Let's discuss your next project</p>
       </div>
 
@@ -32,7 +32,7 @@ export default function ContactPage() {
                   <Mail className="h-5 w-5 text-primary" />
                 </div>
                 <div>
-                  <p className="text-sm font-medium">Email</p>
+                  <p className="text-sm font-medium font-sans">Email</p>
                   <a href={`mailto:${profileData.email}`} className="text-sm text-muted-foreground hover:text-primary">
                     {profileData.email}
                   </a>
@@ -44,7 +44,7 @@ export default function ContactPage() {
                   <Phone className="h-5 w-5 text-primary" />
                 </div>
                 <div>
-                  <p className="text-sm font-medium">Phone</p>
+                  <p className="text-sm font-medium font-sans">Phone</p>
                   <a href={`tel:${profileData.phone}`} className="text-sm text-muted-foreground hover:text-primary">
                     {profileData.phone}
                   </a>
@@ -56,7 +56,7 @@ export default function ContactPage() {
                   <MapPin className="h-5 w-5 text-primary" />
                 </div>
                 <div>
-                  <p className="text-sm font-medium">Location</p>
+                  <p className="text-sm font-medium font-sans">Location</p>
                   <p className="text-sm text-muted-foreground">{profileData.location}</p>
                 </div>
               </div>
@@ -66,7 +66,7 @@ export default function ContactPage() {
                   <Clock className="h-5 w-5 text-primary" />
                 </div>
                 <div>
-                  <p className="text-sm font-medium">Working Hours</p>
+                  <p className="text-sm font-medium font-sans">Working Hours</p>
                   <p className="text-sm text-muted-foreground">{contactData.workingHours.hours}</p>
                   <p className="text-xs text-muted-foreground">{contactData.workingHours.timezone}</p>
                 </div>

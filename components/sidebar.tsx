@@ -27,7 +27,7 @@ export function Sidebar({ profile }: SidebarProps) {
               <AvatarImage src={profile.avatar} alt={profile.name} />
               <AvatarFallback>{profile.name.charAt(0)}</AvatarFallback>
             </Avatar>
-            <h2 className="mt-4 text-xl font-semibold">{profile.name}</h2>
+            <h2 className="mt-4 text-xl font-semibold font-sans">{profile.name}</h2>
             <p className="text-sm text-muted-foreground">{profile.title}</p>
             <p className="mt-1 text-xs text-muted-foreground">
               {profile.location}

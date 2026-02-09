@@ -201,7 +201,7 @@ export default function BlogMaker() {
   return (
     <div className="container max-w-7xl py-8 px-6">
       <div className="mb-8">
-        <h1 className="text-4xl font-bold tracking-tight">Blog Maker</h1>
+        <h1 className="text-4xl font-bold tracking-tight font-sans">Blog Maker</h1>
         <p className="text-muted-foreground mt-2">Create and preview your blog posts with markdown support</p>
         <Badge variant="destructive" className="mt-2">Development Only</Badge>
       </div>
@@ -234,7 +234,7 @@ export default function BlogMaker() {
 
           {isEditMode && (
             <div>
-              <label className="text-sm font-medium mb-2 block">Select Blog to Edit</label>
+              <label className="text-sm font-medium font-sans mb-2 block">Select Blog to Edit</label>
               <select
                 className="w-full p-2 border rounded-md bg-background"
                 value={selectedBlogId}
@@ -270,7 +270,7 @@ export default function BlogMaker() {
             </CardHeader>
             <CardContent className="space-y-4">
               <div>
-                <label className="text-sm font-medium mb-2 block">Title</label>
+                <label className="text-sm font-medium font-sans mb-2 block">Title</label>
                 <Input
                   placeholder="Your Blog Post Title"
                   value={title}
@@ -279,7 +279,7 @@ export default function BlogMaker() {
               </div>
 
               <div>
-                <label className="text-sm font-medium mb-2 block">Slug (URL)</label>
+                <label className="text-sm font-medium font-sans mb-2 block">Slug (URL)</label>
                 <Input
                   placeholder="your-blog-post-slug"
                   value={slug}
@@ -288,7 +288,7 @@ export default function BlogMaker() {
               </div>
 
               <div>
-                <label className="text-sm font-medium mb-2 block">Excerpt</label>
+                <label className="text-sm font-medium font-sans mb-2 block">Excerpt</label>
                 <Textarea
                   placeholder="Brief summary of your blog post..."
                   value={excerpt}
@@ -299,7 +299,7 @@ export default function BlogMaker() {
 
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <label className="text-sm font-medium mb-2 block">Category</label>
+                  <label className="text-sm font-medium font-sans mb-2 block">Category</label>
                   <Input
                     placeholder="e.g., TypeScript"
                     value={category}
@@ -308,7 +308,7 @@ export default function BlogMaker() {
                 </div>
 
                 <div>
-                  <label className="text-sm font-medium mb-2 block">Published Date</label>
+                  <label className="text-sm font-medium font-sans mb-2 block">Published Date</label>
                   <Input
                     type="date"
                     value={publishedAt}
@@ -318,7 +318,7 @@ export default function BlogMaker() {
               </div>
 
               <div>
-                <label className="text-sm font-medium mb-2 block">Cover Image URL</label>
+                <label className="text-sm font-medium font-sans mb-2 block">Cover Image URL</label>
                 <Input
                   placeholder="https://images.unsplash.com/..."
                   value={coverImage}
@@ -327,7 +327,7 @@ export default function BlogMaker() {
               </div>
 
               <div>
-                <label className="text-sm font-medium mb-2 block">Tags</label>
+                <label className="text-sm font-medium font-sans mb-2 block">Tags</label>
                 <div className="flex gap-2 mb-2">
                   <Input
                     placeholder="Add a tag"
@@ -355,7 +355,7 @@ export default function BlogMaker() {
                   onChange={(e) => setFeatured(e.target.checked)}
                   className="h-4 w-4"
                 />
-                <label htmlFor="featured" className="text-sm font-medium">Featured Post</label>
+                <label htmlFor="featured" className="text-sm font-medium font-sans">Featured Post</label>
               </div>
 
               <div className="text-sm text-muted-foreground">
@@ -443,7 +443,7 @@ export default function BlogMaker() {
                         className="w-full aspect-video object-cover rounded-lg mb-4"
                       />
                     )}
-                    <h1 className="text-3xl font-bold">{title || "Your Blog Title"}</h1>
+                    <h1 className="text-3xl font-bold font-sans">{title || "Your Blog Title"}</h1>
                     <p className="text-muted-foreground mt-2">{excerpt}</p>
                     <div className="flex flex-wrap gap-2 mt-4">
                       {category && <Badge variant="secondary">{category}</Badge>}

@@ -112,7 +112,7 @@ export default function Home() {
   return (
     <div className="container max-w-7xl py-8 px-6">
       <div className="mb-8">
-        <h1 className="text-4xl font-bold tracking-tight">My Statistics</h1>
+        <h1 className="text-4xl font-bold tracking-tight font-sans">My Statistics</h1>
         <p className="text-muted-foreground mt-2">This is my analytical way of displaying who I am</p>
       </div>
 
@@ -179,7 +179,7 @@ export default function Home() {
                 <AvatarFallback>{profileData.name.charAt(0)}</AvatarFallback>
               </Avatar>
               <div className="flex-1">
-                <h3 className="text-xl font-semibold">{profileData.name}</h3>
+                <h3 className="text-xl font-semibold font-sans">{profileData.name}</h3>
                 <p className="text-muted-foreground">{profileData.title}</p>
                 <p className="mt-4 text-sm leading-relaxed">{profileData.bio}</p>
               </div>
@@ -221,7 +221,7 @@ export default function Home() {
           <CardContent>
             <div className="flex items-start justify-between">
               <div>
-                <h3 className="text-lg font-semibold">{currentJob.position}</h3>
+                <h3 className="text-lg font-semibold font-sans">{currentJob.position}</h3>
                 <p className="text-muted-foreground">{currentJob.company}</p>
                 <p className="text-sm text-muted-foreground mt-1">{currentJob.location} • {currentJob.type}</p>
                 <p className="mt-3 text-sm">{currentJob.description}</p>
@@ -256,7 +256,7 @@ export default function Home() {
                     className="h-full w-full object-cover opacity-60 saturate-50 transition-all group-hover:opacity-100 group-hover:saturate-100 group-hover:scale-105"
                   />
                 </div>
-                <h4 className="font-semibold group-hover:text-primary transition-colors">{project.title}</h4>
+                <h4 className="font-semibold font-sans group-hover:text-primary transition-colors">{project.title}</h4>
                 <p className="text-sm text-muted-foreground mt-1 line-clamp-2">{project.description}</p>
                 <div className="flex flex-wrap gap-1 mt-2">
                   {project.tags.slice(0, 3).map((tag) => (

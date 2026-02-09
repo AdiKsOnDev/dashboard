@@ -47,7 +47,7 @@ export function ProjectModal({ project, open, onOpenChange }: ProjectModalProps)
         <div className="space-y-6 mt-4">
           {/* Description */}
           <div>
-            <h3 className="text-sm font-semibold mb-2">About This Project</h3>
+            <h3 className="text-sm font-semibold font-sans mb-2">About This Project</h3>
             <p className="text-sm leading-relaxed text-muted-foreground">
               {project.longDescription}
             </p>
@@ -91,7 +91,7 @@ export function ProjectModal({ project, open, onOpenChange }: ProjectModalProps)
 
           {/* Key Metrics */}
           <div>
-            <h3 className="text-sm font-semibold mb-3">Key Metrics</h3>
+            <h3 className="text-sm font-semibold font-sans mb-3">Key Metrics</h3>
             <div className="grid grid-cols-3 gap-3">
               <div className="rounded-lg border p-3">
                 <p className="text-xs text-muted-foreground mb-1">Users</p>
@@ -112,7 +112,7 @@ export function ProjectModal({ project, open, onOpenChange }: ProjectModalProps)
 
           {/* Technologies */}
           <div>
-            <h3 className="text-sm font-semibold mb-3">Technologies Used</h3>
+            <h3 className="text-sm font-semibold font-sans mb-3">Technologies Used</h3>
             <div className="flex flex-wrap gap-2">
               {project.tags.map((tag) => (
                 <Badge key={tag} variant="secondary">

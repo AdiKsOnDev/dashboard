@@ -24,10 +24,10 @@ export async function GET() {
       <guid isPermaLink="true">${siteUrl}/blog/${post.slug}</guid>
       <description>${escapeXml(post.excerpt)}</description>
       <pubDate>${new Date(post.publishedAt).toUTCString()}</pubDate>
-      <author>${post.author}</author>
-      <category>${post.category}</category>
-      <enclosure url="${escapeXml(post.coverImage)}" type="image/png"/>
-      <media:content url="${escapeXml(post.coverImage)}" medium="image"/>
+      <author>${escapeXml(post.author)}</author>
+      <category>${escapeXml(post.category)}</category>
+      <enclosure url="${post.coverImage}" type="image/png"/>
+      <media:content url="${post.coverImage}" medium="image"/>
     </item>`
       )
       .join('')}

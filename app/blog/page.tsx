@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Star } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Star, Rss } from "lucide-react";
 import { BlogCard } from "@/components/blog-card";
 import blogData from "@/data/content/blogs/index.json";
 
@@ -19,8 +20,18 @@ export default function BlogPage() {
   return (
     <div className="container max-w-7xl py-8 px-6">
       <div className="mb-8">
-        <h1 className="text-4xl font-bold tracking-tight font-sans">My Public Rants</h1>
-        <p className="text-muted-foreground mt-2">Have fun reading these. Some are insightful, some are delusional, all are honest</p>
+        <div className="flex items-start justify-between gap-4">
+          <div>
+            <h1 className="text-4xl font-bold tracking-tight font-sans">My Public Rants</h1>
+            <p className="text-muted-foreground mt-2">Have fun reading these. Some are insightful, some are delusional, all are honest</p>
+          </div>
+          <Button variant="outline" size="sm" asChild>
+            <a href="/feed.xml" target="_blank" rel="noopener noreferrer">
+              <Rss className="h-4 w-4 mr-2" />
+              RSS Feed
+            </a>
+          </Button>
+        </div>
       </div>
 
       {pinnedPosts.length > 0 && (

@@ -16,7 +16,7 @@ export async function GET() {
     <language>en</language>
     <atom:link href="${feedUrl}" rel="self" type="application/rss+xml"/>
     <image>
-      <url>${siteUrl}/favicon.ico</url>
+      <url>${profileData.avatar}</url>
       <title>${profileData.name}'s Blog</title>
       <link>${siteUrl}/blog</link>
     </image>

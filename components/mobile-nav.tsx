@@ -56,7 +56,7 @@ export function MobileNav({ profile }: MobileNavProps) {
           <nav className="space-y-1">
             {navigation.map((item) => {
               const Icon = item.icon;
-              const isActive = pathname === item.href;
+              const isActive = item.href === "/" ? pathname === item.href : pathname.startsWith(item.href);
 
               return (
                 <Link key={item.name} href={item.href} onClick={() => setOpen(false)}>

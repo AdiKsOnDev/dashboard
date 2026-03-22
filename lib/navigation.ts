@@ -10,6 +10,8 @@ import {
 } from "lucide-react";
 import { KaggleIcon } from "@/components/icons/kaggle-icon";
 
+const BASE_PATH = '/dashboard';
+
 /**
  * Navigation item configuration
  */
@@ -39,6 +41,10 @@ export function getNavigation(): NavigationItem[] {
     return [...baseNavigation, { name: "Blog Maker", href: "/blog-maker", icon: PenTool }];
   }
   return baseNavigation;
+}
+
+export function getBasePath(): string {
+  return BASE_PATH;
 }
 
 /**

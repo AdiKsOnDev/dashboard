@@ -125,7 +125,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             
             <ShareButton 
               title={post.title}
-              url={`https://adilalizada.com/blog/${post.slug}`}
+              url={`https://adiksondev.github.io/dashboard/blog/${post.slug}`}
             />
           </div>
         </div>

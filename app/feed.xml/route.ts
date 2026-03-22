@@ -4,7 +4,7 @@ import profileData from '@/data/config/profile.json';
 export const dynamic = 'force-static';
 
 export async function GET() {
-  const siteUrl = 'https://adilalizada.com';
+  const siteUrl = 'https://adiksondev.github.io/dashboard';
   const feedUrl = `${siteUrl}/feed.xml`;
   
   const rss = `<?xml version="1.0" encoding="UTF-8"?>

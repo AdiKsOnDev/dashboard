@@ -84,7 +84,7 @@ export const metadata: Metadata = {
   description: "Full Stack Developer Portfolio",
   alternates: {
     types: {
-      'application/rss+xml': 'https://adilalizada.com/feed.xml',
+      'application/rss+xml': 'https://adiksondev.github.io/dashboard/feed.xml',
     },
   },
 };

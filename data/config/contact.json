@@ -6,7 +6,7 @@
   },
   "preferredContact": "email",
   "workingHours": {
-    "timezone": "GST (GMT+4)",
-    "hours": "08:00-22:00"
+    "timezone": "PST (GMT-8)",
+    "hours": "09:00-18:00"
   }
 }

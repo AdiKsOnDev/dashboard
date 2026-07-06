@@ -80,11 +80,11 @@ const tiempos = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Adil Alizada",
+  title: "Jordan Rivers",
   description: "Full Stack Developer Portfolio",
   alternates: {
     types: {
-      'application/rss+xml': 'https://adiksondev.github.io/dashboard/feed.xml',
+      'application/rss+xml': 'https://example.github.io/dashboard/feed.xml',
     },
   },
 };

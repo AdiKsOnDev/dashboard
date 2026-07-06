@@ -137,7 +137,7 @@ export default function BlogMaker() {
       readTime: readTime || estimateReadTime(content),
       category,
       tags,
-      author: "Adil Alizada",
+      author: "Jordan Rivers",
       featured,
       content
     };
